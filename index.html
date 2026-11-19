@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Treviso Sorvetes — Sorvete com sotaque italiano, desde 1993</title>
+<meta name="description" content="Treviso Sorvetes, fábrica de Marumbi (PR) desde 1993. Picolés, potes de 1 a 10 litros, cones e sundae. Conheça as linhas, encontre um ponto de venda e seja revendedor.">
+<meta name="theme-color" content="#0040B2">
+<meta property="og:title" content="Treviso Sorvetes">
+<meta property="og:description" content="Sorvete com sotaque italiano, feito em Marumbi (PR) desde 1993.">
+<meta property="og:type" content="website">
+<style>
+@font-face{font-family:'Obviously';src:url('img/obviously.woff2') format('woff2');font-weight:150 800;font-stretch:100% 800%;font-display:swap}
+:root{
+  --blu:#0040B2; --blu-esc:#002B7A; --blu-claro:#E7EEFB;
+  --verde:#9DB224; --verde-claro:#EEF3D2; --verde-esc:#4E5B0A;
+  --rosso:#EA4949; --rosso-claro:#FDE6E6; --rosso-esc:#A3201F;
+  --bianco:#FFFFFF; --creme:#FBF8F1; --tinta:#0F1B33; --cinza:#55607A;
+  --raio:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Obviously',system-ui,sans-serif;font-variation-settings:'wdth' 300,'wght' 420;color:var(--tinta);background:#fff;-webkit-font-smoothing:antialiased;line-height:1.5}
+img{max-width:100%;display:block}
+a{color:inherit}
+button,input,select,textarea{font:inherit;font-variation-settings:inherit}
+.t{font-family:'Obviously',system-ui,sans-serif;font-variation-settings:'wdth' 200,'wght' 640;text-transform:uppercase;letter-spacing:-.005em;line-height:.92}
+.tw{font-variation-settings:'wdth' 500,'wght' 760}
+.it{font-variation-settings:'wdth' 200,'wght' 640,'slnt' 12;font-style:oblique 12deg}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+.eyebrow{margin:0;font-variation-settings:'wdth' 400,'wght' 700;letter-spacing:.16em;text-transform:uppercase;font-size:13px}
+.skip{position:absolute;left:-999px;top:0;background:#fff;padding:10px 16px;z-index:100}
+.skip:focus{left:12px;top:12px}
+:focus-visible{outline:3px solid var(--verde);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.previa{background:var(--tinta);color:#E3E8F2;font-size:13px;text-align:center;padding:7px 12px}
+.previa b{color:var(--verde)}
+
+/* topo */
+header.topo{position:sticky;top:0;z-index:50;background:rgba(0,64,178,.97);backdrop-filter:blur(10px);color:#fff}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:76px}
+.topo .logo img{height:46px;width:auto}
+.topo nav{display:flex;gap:24px;font-variation-settings:'wdth' 300,'wght' 600}
+.topo nav a{text-decoration:none;padding:8px 0;border-bottom:2px solid transparent;transition:border-color .2s}
+.topo nav a:hover,.topo nav a[aria-current="page"]{border-color:var(--verde)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:12px 26px;border-radius:999px;font-variation-settings:'wdth' 300,'wght' 680;text-decoration:none;border:0;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s;font-size:16px}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(0,43,122,.25)}
+.btn-branco{background:#fff;color:var(--blu)}
+.btn-blu{background:var(--blu);color:#fff}
+.btn-rosso{background:var(--rosso);color:#fff}
+.btn-linha{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.75)}
+.menu-btn{display:none;background:none;border:0;color:#fff;min-width:48px;min-height:48px;cursor:pointer}
+.tricolor{height:6px;background:linear-gradient(90deg,var(--verde) 0 33.33%,#fff 33.33% 66.66%,var(--rosso) 66.66% 100%)}
+@media (max-width:960px){
+  .topo nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--blu-esc);flex-direction:column;gap:0;padding:8px 24px 20px}
+  .topo nav.aberto{display:flex}
+  .topo nav a{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+  .menu-btn{display:inline-flex;align-items:center;justify-content:center}
+  .topo .btn-cta{display:none}
+}
+
+/* arcos */
+.arcos{height:36px;background-color:var(--blu);background-image:radial-gradient(circle at 50% 100%,#fff 11px,transparent 11.6px);background-size:36px 36px;animation:arcos 3s linear infinite}
+.arcos.inv{background-color:#fff;background-image:radial-gradient(circle at 50% 100%,var(--blu) 11px,transparent 11.6px);background-position:18px 0;animation:arcos-inv 3s linear infinite}
+.arcos.tri{background-color:#fff;background-image:radial-gradient(circle at 50% 100%,var(--verde) 11px,transparent 11.6px),radial-gradient(circle at 50% 100%,var(--blu) 11px,transparent 11.6px),radial-gradient(circle at 50% 100%,var(--rosso) 11px,transparent 11.6px);background-size:108px 36px;background-position:0 0,36px 0,72px 0;animation:tri 6s linear infinite}
+@keyframes arcos{to{background-position:36px 0}}
+@keyframes arcos-inv{from{background-position:18px 0}to{background-position:-18px 0}}
+@keyframes tri{to{background-position:108px 0,144px 0,180px 0}}
+
+/* hero */
+.hero{background:var(--blu);color:#fff;overflow:hidden;position:relative}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding-top:64px;padding-bottom:84px}
+.hero h1{margin:16px 0 22px;font-size:clamp(58px,8.4vw,118px)}
+.hero h1 em{font-style:normal;color:var(--verde)}
+.hero p.lead{font-size:20px;line-height:1.5;color:#E3ECFA;max-width:520px;margin:0 0 30px}
+.hero .acoes{display:flex;flex-wrap:wrap;gap:12px}
+.selo{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:6px 14px 6px 6px;font-size:14px}
+.selo b{background:#fff;color:var(--blu);border-radius:999px;padding:4px 10px;font-variation-settings:'wdth' 300,'wght' 760}
+.hero-palco{position:relative;height:560px}
+.hero-palco .halo{position:absolute;inset:8% 8%;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.22),rgba(255,255,255,0) 68%)}
+.hero-palco img{position:absolute;filter:drop-shadow(0 32px 40px rgba(0,0,0,.35))}
+.p1{left:2%;top:70px;height:390px;--r:-15deg;animation:flutua 6s ease-in-out .6s infinite}
+.p2{right:2%;top:60px;height:390px;--r:13deg;animation:flutua 5.6s ease-in-out 1.4s infinite}
+.p3{left:50%;top:14px;height:490px;margin-left:-102px;--r:-2deg;animation:flutua 5s ease-in-out infinite}
+@keyframes flutua{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-22px) rotate(calc(var(--r) + 3deg))}}
+/* carrossel do hero */
+#carrossel{display:grid}
+#carrossel .slide{grid-area:1/1;opacity:0;visibility:hidden;transition:opacity .7s ease,visibility 0s .7s}
+#carrossel .slide.ativo{opacity:1;visibility:visible;transition:opacity .7s ease}
+#carrossel .halo{background:radial-gradient(circle,var(--halo),rgba(255,255,255,0) 68%);transition:background .7s}
+#carrossel .slide .slide-txt>*{transform:translateY(24px);opacity:0;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s}
+#carrossel .slide.ativo .slide-txt>*{transform:none;opacity:1}
+#carrossel .slide.ativo .slide-txt>*:nth-child(2){transition-delay:.08s}
+#carrossel .slide.ativo .slide-txt>*:nth-child(3){transition-delay:.16s}
+#carrossel .slide.ativo .slide-txt>*:nth-child(4){transition-delay:.24s}
+#carrossel .hero-palco img{opacity:0;translate:0 60px;transition:opacity .8s,translate .9s cubic-bezier(.2,.8,.2,1)}
+#carrossel .slide.ativo .hero-palco img{opacity:1;translate:0 0}
+#carrossel .slide.ativo .p1{transition-delay:.1s}#carrossel .slide.ativo .p2{transition-delay:.2s}#carrossel .slide.ativo .p3{transition-delay:.05s}
+/* produtos lado a lado, sem sobreposição */
+#carrossel .hero-palco{display:flex;align-items:center;justify-content:center;gap:clamp(12px,2.4vw,32px)}
+#carrossel .hero-palco .halo{position:absolute}
+#carrossel .hero-palco img{position:relative;left:auto;right:auto;top:auto;margin:0;height:400px;width:auto;max-width:30%;object-fit:contain;z-index:1}
+#carrossel .hero-palco .p1{order:1;--r:-6deg}
+#carrossel .hero-palco .p3{order:2;--r:0deg;height:440px}
+#carrossel .hero-palco .p2{order:3;--r:6deg}
+#carrossel .hero-palco:has(.pote) .p1,#carrossel .hero-palco:has(.pote) .p2{height:300px;max-width:24%}
+#carrossel .hero-palco .p3.pote{height:auto;width:46%;max-width:46%}
+.hero-tit{margin:16px 0 22px;font-size:clamp(58px,8.4vw,118px)}
+.hero-tit em{font-style:normal;color:var(--verde)}
+.car-ctrl{grid-area:1/1;align-self:end;display:flex;align-items:center;gap:10px;padding-bottom:28px;position:relative;z-index:2;width:100%}
+.car-btn{width:44px;height:44px;border-radius:50%;border:2px solid rgba(255,255,255,.5);background:transparent;color:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}
+.car-btn:hover{background:rgba(255,255,255,.15)}
+.car-dots{display:flex;gap:8px}
+.car-dot{min-height:44px;border:0;background:none;cursor:pointer;padding:0 2px;display:flex;align-items:center}
+.car-dot span{display:block;color:rgba(255,255,255,.65);font-variation-settings:'wdth' 300,'wght' 680;font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.3);position:relative;overflow:hidden}
+.car-dot[aria-current="true"] span{color:var(--blu);background:#fff;border-color:#fff}
+.car-dot[aria-current="true"] span::after{content:"";position:absolute;left:0;bottom:0;height:3px;background:var(--rosso);width:0;animation:barra 6s linear forwards}
+#carrossel.pausado .car-dot span::after{animation-play-state:paused}
+@keyframes barra{to{width:100%}}
+#carrossel .wrap.car-ctrl{display:flex;padding-top:0;padding-bottom:28px;grid-template-columns:none}
+#carrossel .slide .wrap{padding-bottom:110px}
+@media (max-width:960px){.car-dot span{font-size:12px;padding:5px 9px}
+  #carrossel .hero-palco img{height:260px}#carrossel .hero-palco .p3{height:290px}
+  #carrossel .hero-palco:has(.pote) .p1,#carrossel .hero-palco:has(.pote) .p2{height:200px}}
+@media (max-width:560px){.car-dots{display:none}}
+@media (max-width:960px){.hero .wrap{grid-template-columns:1fr}.hero-palco{height:390px}.p1,.p2{height:270px}.p3{height:340px;margin-left:-72px}}
+
+/* marquee */
+.faixa-nomes{border-bottom:1px solid #E5EAF3;overflow:hidden;padding:20px 0;background:#fff}
+.marquee{display:flex;gap:44px;width:max-content;animation:marquee 32s linear infinite;font-size:44px;color:var(--blu);white-space:nowrap}
+.marquee .e1{color:var(--verde)}.marquee .e2{color:var(--rosso)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* seções */
+section.bloco{padding:100px 0}
+.titulo{margin:12px 0 0;font-size:clamp(44px,6.2vw,80px);color:var(--blu-esc)}
+.titulo em{font-style:normal;color:var(--blu)}
+.sub{font-size:19px;line-height:1.55;color:var(--cinza);max-width:640px;margin:18px 0 0}
+.cab{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
+.escuro{background:var(--blu-esc);color:#fff}
+.escuro .titulo{color:#fff}.escuro .titulo em{color:var(--verde)}.escuro .sub{color:#CFDBF0}
+.azul{background:var(--blu);color:#fff}
+.azul .titulo{color:#fff}.azul .titulo em{color:var(--verde)}.azul .sub{color:#E3ECFA}
+.duas{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+@media (max-width:900px){.duas{grid-template-columns:1fr}}
+
+/* três famílias */
+.familias{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.familia{border-radius:var(--raio);padding:32px;min-height:340px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
+.familia .cor{font-variation-settings:'wdth' 400,'wght' 700;letter-spacing:.16em;text-transform:uppercase;font-size:13px}
+.familia h3{margin:0;font-size:46px}
+.familia p{margin:0;font-size:17px;line-height:1.55}
+.familia .linhas{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.familia .linhas a{background:rgba(255,255,255,.85);border-radius:999px;padding:8px 14px;font-variation-settings:'wdth' 300,'wght' 680;text-decoration:none;font-size:14px;min-height:40px;display:inline-flex;align-items:center}
+.f-verde{background:var(--verde-claro);color:var(--verde-esc)}
+.f-bianco{background:var(--blu-claro);color:var(--blu-esc)}
+.f-rosso{background:var(--rosso-claro);color:var(--rosso-esc)}
+.familia::after{content:"";position:absolute;right:-30px;bottom:-30px;width:160px;height:80px;border-radius:80px 80px 0 0;background:currentColor;opacity:.08}
+@media (max-width:900px){.familias{grid-template-columns:1fr}}
+
+/* cards de linha */
+.grade-linhas{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px}
+.card-linha{position:relative;border-radius:var(--raio);overflow:hidden;text-decoration:none;min-height:350px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;background:var(--bg);color:var(--ink);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.card-linha:hover{transform:translateY(-6px);box-shadow:0 24px 40px rgba(15,27,51,.14)}
+.card-linha h3{margin:0;font-size:48px;padding-right:92px;line-height:.95}
+.card-linha .fmt{font-variation-settings:'wdth' 300,'wght' 600;font-size:15px;opacity:.85;margin-top:8px}
+.card-linha .capa{align-self:center;height:190px;display:flex;align-items:flex-end;justify-content:center;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.card-linha .capa img{max-height:190px;width:auto;object-fit:contain;filter:drop-shadow(0 16px 20px rgba(0,0,0,.18))}
+.card-linha:hover .capa{transform:translateY(-8px) rotate(-3deg) scale(1.04)}
+.card-linha .ver{display:inline-flex;align-items:center;gap:6px;font-variation-settings:'wdth' 300,'wght' 700;font-size:15px}
+.card-linha .qtd{position:absolute;top:22px;right:22px;background:rgba(255,255,255,.8);border-radius:999px;padding:4px 12px;font-variation-settings:'wdth' 300,'wght' 700;font-size:13px}
+
+/* momentos */
+.momentos{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.momento{border-radius:20px;background:#fff;border:1px solid #E5EAF3;padding:24px;display:flex;flex-direction:column;gap:10px;text-decoration:none;transition:transform .3s,box-shadow .3s}
+.momento:hover{transform:translateY(-4px);box-shadow:0 16px 30px rgba(15,27,51,.1)}
+.momento .n{font-size:40px;color:var(--rosso)}
+.momento h3{margin:0;font-size:28px;color:var(--blu-esc)}
+.momento p{margin:0;color:var(--cinza);font-size:15px}
+.momento span{margin-top:auto;font-variation-settings:'wdth' 300,'wght' 700;color:var(--blu);font-size:14px}
+@media (max-width:1100px){.momentos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.momentos{grid-template-columns:1fr}}
+
+/* vitrine rolagem */
+.vitrine{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 24px 24px;margin:0 -24px;scrollbar-width:thin}
+.vitrine .card-prod{flex:0 0 230px;scroll-snap-align:start}
+
+/* catálogo */
+.filtros{display:flex;flex-direction:column;gap:14px;margin-bottom:32px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:10px 18px;border-radius:999px;border:2px solid #CBD8EE;background:#fff;color:var(--blu-esc);font-variation-settings:'wdth' 300,'wght' 680;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.chip[aria-pressed="true"]{background:var(--blu);border-color:var(--blu);color:#fff}
+.busca{display:flex;gap:10px;flex-wrap:wrap}
+.busca input{flex:1 1 260px;min-height:52px;border-radius:999px;border:2px solid #CBD8EE;padding:12px 20px;font-size:17px}
+.contagem{color:var(--cinza);font-variation-settings:'wdth' 300,'wght' 600}
+.grade-prod{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
+.card-prod{border-radius:20px;background:var(--bg);color:var(--ink);text-decoration:none;padding:18px;display:flex;flex-direction:column;gap:8px;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+.card-prod:hover{transform:translateY(-6px);box-shadow:0 20px 34px rgba(15,27,51,.13)}
+.card-prod .foto{height:220px;display:flex;align-items:center;justify-content:center}
+.card-prod .foto img{max-height:220px;width:auto;object-fit:contain;filter:drop-shadow(0 12px 16px rgba(0,0,0,.16));transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.card-prod:hover .foto img{transform:translateY(-6px) rotate(-3deg)}
+.card-prod .lin{font-size:12px;font-variation-settings:'wdth' 400,'wght' 700;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+.card-prod h3{margin:0;font-size:28px}
+.card-prod .tam{font-size:14px;font-variation-settings:'wdth' 300,'wght' 600;opacity:.85}
+.sem-foto{width:100%;height:200px;border-radius:14px;background-color:rgba(255,255,255,.6);background-image:radial-gradient(circle at 50% 100%,var(--ink) 9px,transparent 9.6px);background-size:30px 30px;background-repeat:repeat-x;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;font-variation-settings:'wdth' 300,'wght' 680;font-size:14px;opacity:.85}
+.vazio{padding:40px;border-radius:20px;background:var(--blu-claro);text-align:center;color:var(--blu-esc);font-variation-settings:'wdth' 300,'wght' 600}
+
+/* produto */
+.prod{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.prod-foto{background:var(--bg);border-radius:28px;min-height:540px;display:flex;align-items:center;justify-content:center;padding:40px}
+.prod-foto img{max-height:470px;width:auto;object-fit:contain;filter:drop-shadow(0 30px 40px rgba(0,0,0,.22));animation:flutua 6s ease-in-out infinite;--r:-3deg}
+.prod h1{margin:10px 0 0;font-size:clamp(50px,6vw,88px);color:var(--ink)}
+.ficha{margin:26px 0;display:grid;grid-template-columns:auto 1fr;gap:12px 20px;font-size:17px}
+.ficha dt{font-variation-settings:'wdth' 300,'wght' 700;color:var(--cinza)}
+.ficha dd{margin:0}
+.pend{background:#FFF6DB;border-radius:14px;padding:14px 18px;font-size:15px;color:#6B5200}
+.voltar{display:inline-flex;align-items:center;gap:6px;font-variation-settings:'wdth' 300,'wght' 700;text-decoration:none;color:var(--blu);margin-bottom:24px;min-height:44px}
+@media (max-width:900px){.prod{grid-template-columns:1fr}.prod-foto{min-height:380px}.prod-foto img{max-height:330px}}
+
+/* números e linha do tempo */
+.numeros{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.num{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:var(--raio);padding:26px}
+.num b{display:block;font-family:'Obviously',sans-serif;font-variation-settings:'wdth' 200,'wght' 700;font-size:64px;line-height:1;color:var(--verde)}
+.num span{color:#CFDBF0}
+.num small{display:block;margin-top:8px;font-size:12px;color:#9FB4DA}
+.tempo{list-style:none;margin:0;padding:0;display:grid;gap:0;border-left:3px solid var(--blu);margin-left:10px}
+.tempo li{position:relative;padding:0 0 34px 30px}
+.tempo li::before{content:"";position:absolute;left:-12px;top:4px;width:21px;height:21px;border-radius:21px 21px 0 0;background:var(--c,var(--blu))}
+.tempo .ano{font-size:40px;color:var(--blu-esc)}
+.tempo p{margin:6px 0 0;color:var(--cinza);font-size:17px;max-width:560px}
+
+/* faq */
+.faq details{border-bottom:1px solid #DDE4F0;padding:6px 0}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;font-variation-settings:'wdth' 300,'wght' 680;font-size:19px;color:var(--blu-esc);min-height:44px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:28px;color:var(--rosso);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{margin:0 0 18px;color:var(--cinza);font-size:17px;max-width:760px}
+
+/* vantagens */
+.vantagens{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:28px}
+.vant{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:18px}
+.vant b{display:block;font-size:22px;margin-bottom:6px}
+.vant p{margin:0;color:#E3ECFA;font-size:15px}
+@media (max-width:600px){.vantagens{grid-template-columns:1fr}}
+
+/* pontos */
+.grade-pontos{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.ponto{background:#fff;border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:8px;border:1px solid #E5EAF3;transition:transform .3s,box-shadow .3s}
+.ponto:hover{transform:translateY(-4px);box-shadow:0 16px 30px rgba(15,27,51,.1)}
+.ponto .tipo{align-self:flex-start;background:var(--blu-claro);color:var(--blu-esc);font-variation-settings:'wdth' 400,'wght' 700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:4px 10px}
+.ponto h3{margin:4px 0 0;font-size:30px;color:var(--blu-esc)}
+.ponto p{margin:0;color:var(--cinza);line-height:1.5}
+.ponto a{margin-top:auto;display:inline-flex;align-items:center;gap:6px;font-variation-settings:'wdth' 300,'wght' 700;color:var(--blu);text-decoration:none;min-height:44px}
+.ponto .ex{font-size:12px;color:#8A6D00}
+
+/* formulário */
+.form{background:#fff;color:var(--tinta);border-radius:28px;padding:32px;box-shadow:0 30px 60px rgba(0,0,0,.22);display:flex;flex-direction:column;gap:14px}
+.campo{display:flex;flex-direction:column;gap:6px}
+.campo label{font-variation-settings:'wdth' 300,'wght' 700;font-size:15px}
+.campo input,.campo select,.campo textarea{font-size:17px;padding:13px 16px;min-height:52px;border-radius:14px;border:2px solid #CBD8EE;background:#fff;color:var(--tinta)}
+.linha2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:600px){.linha2{grid-template-columns:1fr}}
+.ok{text-align:center;padding:30px 0}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--cinza)}
+.consent input{width:22px;height:22px;margin-top:2px;flex:none}
+
+/* texto longo */
+.texto{max-width:780px}
+.texto h2{font-size:34px;color:var(--blu-esc);margin:40px 0 10px}
+.texto p,.texto li{font-size:17px;color:var(--tinta);line-height:1.65}
+
+/* contato */
+.contatos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.contato{background:var(--creme);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:8px}
+.contato b{font-size:26px;color:var(--blu-esc)}
+@media (max-width:800px){.contatos{grid-template-columns:1fr}}
+
+/* rodapé */
+footer{background:var(--blu-esc);color:#CFDBF0}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;padding-top:60px;padding-bottom:36px}
+footer a{text-decoration:none;color:#fff}
+footer .col{display:flex;flex-direction:column;gap:10px}
+footer .col b{color:#fff}
+footer .copy{border-top:1px solid rgba(255,255,255,.12);padding:18px 24px 30px;max-width:1240px;margin:0 auto;font-size:13px;color:#9FB4DA;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media (max-width:900px){footer .wrap{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){footer .wrap{grid-template-columns:1fr}}
+
+/* cookies */
+.cookies{position:fixed;left:16px;right:16px;bottom:16px;z-index:80;max-width:560px;background:#fff;border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.25);padding:20px;display:flex;flex-direction:column;gap:12px}
+.cookies p{margin:0;font-size:15px;color:var(--cinza)}
+.cookies .acoes{display:flex;gap:10px;flex-wrap:wrap}
+.cookies[hidden]{display:none!important}
+
+/* entradas */
+.rev{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.rev.vis{opacity:1;transform:none}
+.pagina{animation:entra .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes entra{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rev{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<div class="previa"><b>Prévia em desenvolvimento</b> · catálogo, números e pontos de venda em validação com a Treviso · [colchetes] = pendente</div>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="Treviso Sorvetes — início"><img src="img/logo-negativo.svg" alt="Treviso Sorvetes"></a>
+    <nav id="menu" aria-label="Principal">
+      <a href="#produtos" data-nav="produtos">Sabores</a>
+      <a href="#sobre" data-nav="sobre">Nossa história</a>
+      <a href="#onde" data-nav="onde">Onde encontrar</a>
+      <a href="#revenda" data-nav="revenda">Seja revendedor</a>
+      <a href="#contato" data-nav="contato">Contato</a>
+    </nav>
+    <a class="btn btn-branco btn-cta" href="#revenda">Quero revender</a>
+    <button class="menu-btn" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false">
+      <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+<div class="tricolor" aria-hidden="true"></div>
+
+<main id="conteudo"></main>
+
+<footer>
+  <div class="wrap">
+    <div class="col">
+      <img src="img/logo-negativo.svg" alt="Treviso Sorvetes" style="height:64px;width:auto;align-self:flex-start">
+      <p style="margin:6px 0 0;max-width:300px;line-height:1.6">Sorvete com sotaque italiano, feito em Marumbi (PR) desde 1993.</p>
+    </div>
+    <nav class="col" aria-label="Sabores">
+      <b>Sabores</b>
+      <a href="#linha-difrutta">Difrutta</a><a href="#linha-dilatte">Dilatte</a><a href="#linha-speciale">Speciale</a><a href="#linha-celebrare">Celebrare</a><a href="#produtos">Todas as linhas</a>
+    </nav>
+    <nav class="col" aria-label="Institucional">
+      <b>Treviso</b>
+      <a href="#sobre">Nossa história</a><a href="#onde">Onde encontrar</a><a href="#revenda">Seja revendedor</a><a href="#contato">Contato</a><a href="#privacidade">Política de privacidade</a>
+    </nav>
+    <div class="col">
+      <b>Fale com a gente</b>
+      <span style="word-break:break-all">marketing@favarodistribuidora.com</span>
+      <span>(43) 3441-1490</span>
+      <span>@sorvetestreviso</span>
+      <span>Rua Otavio Cividini, [nº], Marumbi – PR</span>
+    </div>
+  </div>
+  <div class="copy"><span>© Sorvetes Treviso LTDA · CNPJ 00.153.607/0001-01</span><span>Prévia de desenvolvimento · Ragon! Marketing e Comunicação</span></div>
+</footer>
+
+<div class="cookies" id="cookies" role="dialog" aria-label="Aviso de cookies" hidden>
+  <p>Usamos cookies essenciais para o site funcionar e, com a sua permissão, cookies de medição para entender como ele é usado. Saiba mais na <a href="#privacidade">Política de privacidade</a>.</p>
+  <div class="acoes"><button class="btn btn-blu" id="ck-aceitar">Aceitar todos</button><button class="btn" style="background:var(--blu-claro);color:var(--blu-esc)" id="ck-essenciais">Só os essenciais</button></div>
+</div>
+
+<script>
+const LINHAS = {
+  difrutta:   {nome:'Difrutta',    fam:'verde',  fmt:'Picolés de fruta · 60g',               bg:'#EEF3D2', ink:'#3F4A08', capa:'img/limao.webp',             txt:'O picolé de fruta da casa: leve, colorido e direto ao ponto. Cinco sabores para o calor do dia a dia.'},
+  dilatte:    {nome:'Dilatte',     fam:'bianco', fmt:'Picolés de leite · 60g',               bg:'#FDE6EC', ink:'#8A0F38', capa:'img/morango-dilatte.webp',   txt:'Picolés de leite cremosos, com os sabores clássicos que todo mundo procura no freezer.'},
+  speciale:   {nome:'Speciale',    fam:'rosso',  fmt:'Picolés com cobertura e potes de 2 L', bg:'#E3F2F8', ink:'#4A2A1A', capa:'img/skimo.webp',             txt:'Cobertura, recheio e camadas. A linha para quem quer um sorvete mais caprichado, no palito ou no pote.'},
+  celebrare:  {nome:'Celebrare',   fam:'rosso',  fmt:'Picolés e potes de 1,5 L',             bg:'#F6EBD5', ink:'#5A3415', capa:'img/trufado.webp',           txt:'Trufas, recheios e combinações especiais. Feita para as ocasiões que pedem algo a mais.'},
+  tradizionale:{nome:'Tradizionale',fam:'bianco',fmt:'Potes de 1 L e 2 L',                   bg:'#E8F1E4', ink:'#1F5130', capa:'img/cover-tradizionale.webp',txt:'Os sabores de sempre em potes para a família: do napolitano ao milho verde.'},
+  combinatto: {nome:'Combinatto',  fam:'rosso',  fmt:'Potes de 1,5 L com dois sabores',      bg:'#F8E7F2', ink:'#6B2C6E', capa:'img/unicornio.webp',         txt:'Dois sabores lado a lado no mesmo pote. Para quem não consegue escolher só um.'},
+  bambini:    {nome:'Bambini',     fam:'bianco', fmt:'Linha infantil',                       bg:'#E3F2FB', ink:'#B0144F', capa:'img/amore-mio.webp',         txt:'Sabores e formatos pensados para os pequenos, como o picolé em forma de coração.'},
+  outros:     {nome:'Outros formatos', fam:'bianco', fmt:'Cones, copos e potinhos',            bg:'#FBEBDD', ink:'#6B3A1E', capa:'img/cover-conitos.webp',     txt:'Conitos, Sundae, Pertutti, Moreninha e Colegial: formatos práticos para levar na mão. [Nome do grupo e formatos — confirmar com a Treviso]'},
+  food:       {nome:'Potes 7 e 10 L', fam:'bianco', fmt:'Para sorveterias e food service',     bg:'#E6EEF9', ink:'#0B2E73', capa:null,                         txt:'Potes grandes para sorveterias, lanchonetes e restaurantes que servem na casquinha ou na taça. [Sabores disponíveis — confirmar]'}
+};
+const SLIDES = [
+  {id:'difrutta', linha:'Difrutta', sub:'picolés de fruta', halo:'rgba(157,178,36,.45)', tit:'Fruta que<br><em>refresca</em>.', lead:'Abacaxi, uva, limão, groselha e minissaia: cinco picolés de fruta para o calor de todo dia.', imgs:['uva','groselha','limao']},
+  {id:'dilatte', linha:'Dilatte', sub:'picolés de leite', halo:'rgba(255,170,200,.45)', tit:'Cremoso<br><em>de sempre</em>.', lead:'Nove sabores de picolé de leite, do morango ao milho verde, com o gosto que todo mundo procura no freezer.', imgs:['chocolate-dilatte','milho-verde-dilatte','morango-dilatte']},
+  {id:'speciale', linha:'Speciale', sub:'cobertura e recheio', halo:'rgba(120,200,235,.45)', tit:'Cobertura,<br><em>recheio</em> e capricho.', lead:'Picolés com cobertura e potes de 2 litros para quem quer um sorvete mais caprichado.', imgs:['skimo','skicoco','dois-amores']},
+  {id:'celebrare', linha:'Celebrare', sub:'para ocasiões especiais', halo:'rgba(234,73,73,.4)', tit:'Feito para<br><em>celebrar</em>.', lead:'Trufas, recheios e potes de 1,5 litro para os momentos que pedem algo a mais.', imgs:['pe-de-moleque','chocobom','trufado'], pote:true}
+];
+const EM_BREVE = [
+ {nome:'Linha In Natura', fam:'f-verde', txt:'Picolé de laranja feito com suco da fruta.', pend:'[Nome final, composição e data de lançamento — confirmar]'},
+ {nome:'Treviso + Café Jandaia', fam:'f-rosso', txt:'Uma parceria com o Café Jandaia: picolé de leite com café.', pend:'[Nome final e data de lançamento — confirmar]'}
+];
+function emBreve(){return `<section class="bloco" style="padding-top:0"><div class="wrap">
+  <div class="cab rev"><div><p class="eyebrow" style="color:var(--verde-esc)">Vem aí</p><h2 class="titulo t">Em <em>breve</em> no freezer</h2></div></div>
+  <div class="familias">${EM_BREVE.map(e=>`<article class="familia ${e.fam} rev"><span class="cor">Em breve</span><h3 class="t">${e.nome}</h3><p>${e.txt}</p><p style="opacity:.8;font-size:14px">${e.pend}</p></article>`).join('')}</div>
+  </div></section>`}
+const FAMILIAS = {
+  verde:  {cls:'f-verde',  cor:'Verde',  titulo:'Fruta e frescor', txt:'Picolés de fruta para os dias quentes, leves e cheios de cor.'},
+  bianco: {cls:'f-bianco', cor:'Bianco', titulo:'Cremoso de sempre', txt:'Os clássicos de leite, em picolé, pote e casquinha, que a família inteira conhece.'},
+  rosso:  {cls:'f-rosso',  cor:'Rosso',  titulo:'Feito para celebrar', txt:'Coberturas, recheios e combinações para os momentos que pedem algo especial.'}
+};
+// [slug, nome, linha, formato, tamanho, descrição da embalagem, imagem]
+const P = [
+ ['abacaxi-difrutta','Abacaxi','difrutta','Picolé','60g','Picolé sabor abacaxi','abacaxi-difrutta'],
+ ['uva-difrutta','Uva','difrutta','Picolé','60g','Picolé sabor artificial de uva','uva'],
+ ['limao-difrutta','Limão','difrutta','Picolé','60g','Picolé sabor limão','limao'],
+ ['groselha-difrutta','Groselha','difrutta','Picolé','60g','Picolé sabor artificial de groselha','groselha'],
+ ['minissaia-difrutta','Minissaia','difrutta','Picolé','60g','Picolé sabor limão e uva','minissaia'],
+ ['morango-dilatte','Morango','dilatte','Picolé','60g','Picolé de leite sabor morango','morango-dilatte'],
+ ['chocolate-dilatte','Chocolate','dilatte','Picolé','60g','Picolé de leite sabor chocolate','chocolate-dilatte'],
+ ['leite-condensado-dilatte','Leite Condensado','dilatte','Picolé','60g','Picolé de leite sabor leite condensado','leite-condensado-dilatte'],
+ ['coco-queimado-dilatte','Coco Queimado','dilatte','Picolé','60g','Picolé de leite sabor coco queimado','coco-queimado'],
+ ['coco-branco-dilatte','Coco Branco','dilatte','Picolé','60g','Picolé de leite sabor coco branco','coco-branco-dilatte'],
+ ['milho-verde-dilatte','Milho Verde','dilatte','Picolé','60g','Picolé de leite sabor milho verde','milho-verde-dilatte'],
+ ['amendoim-dilatte','Amendoim','dilatte','Picolé','60g','Picolé de leite sabor amendoim','amendoim'],
+ ['flocos-dilatte','Flocos','dilatte','Picolé','',null,null],
+ ['abacaxi-ao-creme-dilatte','Abacaxi ao Creme','dilatte','Picolé','',null,null],
+ ['skimo-speciale','Skimo','speciale','Picolé','60g','Picolé sabor artificial de nata com cobertura de chocolate','skimo'],
+ ['brigadeiro-speciale','Brigadeiro','speciale','Picolé','60g','Picolé sabor brigadeiro','brigadeiro'],
+ ['skicoco-speciale','Skicoco','speciale','Picolé','60g','Picolé sabor coco com cobertura de chocolate e coco em flocos','skicoco'],
+ ['dois-amores-speciale','2 Amores Morango','speciale','Picolé','68g','Picolé sabor artificial de morango com recheio de polpa de morango e cobertura de chocolate branco','dois-amores'],
+ ['torta-de-limao-speciale','Torta de Limão','speciale','Picolé','',null,null],
+ ['sensacoes-speciale','Sensações','speciale','Pote','2 L · 1 kg','Sorvete sabor artificial de morango com pedaços de chocolate ao leite e cobertura de morango','sensacoes'],
+ ['mesclabom-speciale','Mesclabom','speciale','Pote','2 L · 1 kg','Sorvete sabor artificial de leite condensado com pedaços de chocolate ao leite e cobertura de morango','mesclabom'],
+ ['torta-alema-speciale','Torta Alemã','speciale','Pote','2 L · 1 kg','Sorvete sabor artificial de chocolate branco com pedaços de chocolate ao leite e cobertura de chocolate','torta-alema'],
+ ['alfajor-speciale','Alfajor','speciale','Pote','',null,null],
+ ['flocos-speciale','Flocos','speciale','Pote','',null,null],
+ ['iogurte-com-amora-speciale','Iogurte com Amora','speciale','Pote','',null,null],
+ ['mousse-de-limao-speciale','Mousse de Limão','speciale','Pote','',null,null],
+ ['olho-de-sogra-speciale','Olho de Sogra','speciale','Pote','',null,null],
+ ['ouro-negro-speciale','Ouro Negro','speciale','Pote','',null,null],
+ ['bello-ferrero-speciale','Bello Ferrero','speciale','Pote','2 L',null,null],
+ ['bello-ferrero-picole','Bello Ferrero','speciale','Picolé','',null,null],
+ ['pe-de-moleque-celebrare','Pé de Moleque','celebrare','Picolé','75g','Picolé sabor artificial de bombom com recheio de creme de amendoim e cobertura de chocolate com amendoim','pe-de-moleque'],
+ ['chocobom-celebrare','Chocobom','celebrare','Picolé','65g','Picolé sabor artificial de chocolate branco com recheio cremoso de chocolate e cobertura de chocolate com flocos de arroz e castanhas','chocobom'],
+ ['trufado-celebrare','Trufado','celebrare','Pote','1,5 L · 750g','Sorvete sabor chocolate com recheio de trufa','trufado'],
+ ['leitinho-trufado-celebrare','Leitinho Trufado','celebrare','Pote','1,5 L · 750g','Sorvete sabor artificial de leite com recheio de trufa','leitinho-trufado'],
+ ['iogurte-com-amarena-celebrare','Iogurte com Amarena','celebrare','Pote','1,5 L · 750g','Sorvete sabor iogurte com recheio de amarena','iogurte-amarena'],
+ ['amor-perfeito-celebrare','Amor Perfeito','celebrare','Pote','1,5 L · 750g','Sorvete sabor limão com recheio de maracujá','amor-perfeito'],
+ ['oro-bianco-celebrare','Oro Bianco','celebrare','Pote','',null,null],
+ ['cafe-moca-celebrare','Café Moca','celebrare','Pote','',null,null],
+ ['cookies-celebrare','Cookies','celebrare','Pote','',null,null],
+ ['choco-duo-celebrare','Choco Duo','celebrare','Pote','',null,null],
+ ['abacaxi-tradizionale','Abacaxi','tradizionale','Pote','1 L e 2 L',null,null],
+ ['chocolate-tradizionale','Chocolate','tradizionale','Pote','1 L e 2 L',null,null],
+ ['leite-condensado-tradizionale','Leite Condensado','tradizionale','Pote','1 L e 2 L',null,null],
+ ['morango-tradizionale','Morango','tradizionale','Pote','1 L e 2 L',null,null],
+ ['napolitano-tradizionale','Napolitano','tradizionale','Pote','1 L e 2 L',null,null],
+ ['passas-ao-rum-tradizionale','Passas ao Rum','tradizionale','Pote','1 L',null,null],
+ ['uva-ao-creme-tradizionale','Uva ao Creme','tradizionale','Pote','1 L',null,null],
+ ['baunilha-tradizionale','Baunilha','tradizionale','Pote','2 L',null,null],
+ ['creme-tradizionale','Creme','tradizionale','Pote','2 L',null,null],
+ ['coco-branco-tradizionale','Coco Branco','tradizionale','Pote','2 L',null,null],
+ ['milho-verde-tradizionale','Milho Verde','tradizionale','Pote','2 L',null,null],
+ ['unicornio-combinatto','Unicórnio','combinatto','Pote','1,5 L · 750g','Sorvete sabor artificial de chiclete e algodão doce','unicornio'],
+ ['beijinho-e-brigadeiro-combinatto','Beijinho e Brigadeiro','combinatto','Pote','1,5 L · 750g','Sorvete sabor artificial de beijinho e brigadeiro','beijinho-brigadeiro'],
+ ['iogurte-de-morango-e-leitinho-combinatto','Iogurte de Morango e Leitinho','combinatto','Pote','1,5 L · 750g','Sorvete sabor artificial iogurte de morango e leitinho','iogurte-morango-leitinho'],
+ ['franatta-combinatto','Franatta','combinatto','Pote','',null,null],
+ ['passione-combinatto','Passione','combinatto','Pote','',null,null],
+ ['amore-mio-bambini','Amore Mio','bambini','Picolé','70g','Picolé de leite sabor iogurte de morango','amore-mio'],
+ ['creme-do-ceu-bambini','Creme do Céu','bambini','Picolé e pote','',null,null],
+ ['chicletes-bambini','Chicletes','bambini','Pote','',null,null],
+ ['morango-conitos','Conitos Morango','outros','Cone','',null,null],
+ ['chocolate-conitos','Conitos Chocolate','outros','Cone','',null,null],
+ ['flocos-conitos','Conitos Flocos','outros','Cone','',null,null],
+ ['morango-pertutti','Pertutti Morango','outros','Potinho','',null,null],
+ ['chocolate-pertutti','Pertutti Chocolate','outros','Potinho','',null,null],
+ ['flocos-pertutti','Pertutti Flocos','outros','Potinho','',null,null],
+ ['chocolate-sundae','Sundae Chocolate','outros','Copo','',null,null],
+ ['morango-sundae','Sundae Morango','outros','Copo','',null,null],
+ ['moreninha','Moreninha','outros','[A confirmar]','',null,null],
+ ['colegial','Colegial','outros','Pote','',null,null],
+ ['pote-7-litros','Pote 7 L','food','Pote','7 L',null,null],
+ ['pote-10-litros','Pote 10 L','food','Pote','10 L',null,null]
+]
+.map(a=>({slug:a[0],nome:a[1],linha:a[2],formato:a[3],tam:a[4],desc:a[5],img:a[6]?('img/'+a[6]+'.webp'):null}));
+
+// Pontos de venda: EXEMPLOS de pesquisa pública (16/11/2026) para a prévia. A lista oficial virá da Treviso.
+const PONTOS = [
+ {nome:'Sorvetes Express', tipo:'Sorveteria e delivery', end:'Av. Munhoz da Rocha, 413, Centro', cidade:'Mandaguaçu', uf:'PR'},
+ {nome:'Rei do Lanche', tipo:'Lanchonete', end:'Av. Romário Martins, 157, Centro', cidade:'Rolândia', uf:'PR'},
+ {nome:'Treviso Sorvetes e Açaí', tipo:'Sorveteria', end:'Rua Senador Souza Naves, 823', cidade:'Jandaia do Sul', uf:'PR'},
+ {nome:'Sorveteria Treviso', tipo:'Sorveteria', end:'Av. 7 de Setembro, 752', cidade:'Marumbi', uf:'PR'},
+ {nome:'Treviso Sorvetes Mandaguari', tipo:'Sorveteria', end:'', cidade:'Mandaguari', uf:'PR'},
+ {nome:'Treviso Sorvetes Marialva', tipo:'Sorveteria', end:'', cidade:'Marialva', uf:'PR'},
+ {nome:'Treviso Sorvetes Cambira', tipo:'Sorveteria', end:'', cidade:'Cambira', uf:'PR'},
+ {nome:'Sorveteria Treviso Arapongas', tipo:'Sorveteria', end:'', cidade:'Arapongas', uf:'PR'},
+ {nome:'Treviso Sorvetes Borrazópolis', tipo:'Sorveteria', end:'', cidade:'Borrazópolis', uf:'PR'},
+ {nome:'Treviso Sorvetes Lunardelli', tipo:'Sorveteria', end:'', cidade:'Lunardelli', uf:'PR'},
+ {nome:'Treviso Novo Itacolomi', tipo:'Sorveteria', end:'', cidade:'Novo Itacolomi', uf:'PR'},
+ {nome:'Sorveteria Treviso', tipo:'Sorveteria e lanchonete', end:'', cidade:'Jardim Alegre', uf:'PR'},
+ {nome:'Treviso Sorvetes Zona 23', tipo:'Sorveteria e delivery', end:'Zona 23', cidade:'Maringá', uf:'PR'}
+];
+
+const $ = s=>document.querySelector(s);
+const esc = s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const sem = s=>s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+const main = $('#conteudo');
+const estado = {linha:'todas', formato:'todos', busca:'', cidade:'todas', qp:''};
+const seta = `<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
+const arcos = `<div aria-hidden="true"><div class="arcos"></div><div class="arcos inv"></div></div>`;
+const arcosTri = `<div aria-hidden="true" class="arcos tri"></div>`;
+
+function fotoOu(p){return p.img?`<img src="${p.img}" alt="${esc(LINHAS[p.linha].nome+' '+p.nome)}" loading="lazy">`:`<div class="sem-foto">Imagem em breve<br>${esc(p.nome)}</div>`}
+function cardProd(p){const l=LINHAS[p.linha];return `<a class="card-prod" href="#p-${p.slug}" style="--bg:${l.bg};--ink:${l.ink}">
+  <div class="foto">${fotoOu(p)}</div><span class="lin">${esc(l.nome)} · ${esc(p.formato)}</span><h3 class="t">${esc(p.nome)}</h3>${p.tam?`<span class="tam">${esc(p.tam)}</span>`:''}</a>`}
+function cardLinha(id){const l=LINHAS[id];const n=P.filter(p=>p.linha===id).length;return `<a class="card-linha rev" href="#linha-${id}" style="--bg:${l.bg};--ink:${l.ink}">
+  <span class="qtd">${n} ${n>1?'sabores':'sabor'}</span><div><h3 class="t">${l.nome}</h3><div class="fmt">${esc(l.fmt)}</div></div>
+  <div class="capa">${l.capa?`<img src="${l.capa}" alt="" loading="lazy">`:`<div class="sem-foto" style="width:200px;height:150px">Imagem em breve</div>`}</div>
+  <span class="ver">Ver sabores ${seta}</span></a>`}
+
+function numeros(){return `<div class="numeros rev">
+  <div class="num"><b>1993</b><span>ano de fundação, em Marumbi (PR)</span></div>
+  <div class="num"><b>+150</b><span>cidades atendidas no Paraná</span></div>
+  <div class="num"><b>2.500</b><span>pontos de venda, aproximadamente</span></div>
+  <div class="num"><b>5.500 m²</b><span>de fábrica construída</span></div>
+</div>`}
+
+function home(){
+  const fam = Object.entries(FAMILIAS).map(([k,f])=>`<article class="familia ${f.cls} rev"><span class="cor">${f.cor}</span><h3 class="t">${f.titulo}</h3><p>${f.txt}</p>
+    <div class="linhas">${Object.entries(LINHAS).filter(([,l])=>l.fam===k).map(([id,l])=>`<a href="#linha-${id}">${l.nome}</a>`).join('')}</div></article>`).join('');
+  const momentos=[['01','No calor do dia','Picolés de fruta e de leite para matar a vontade na hora.','#linha-difrutta','Difrutta e Dilatte'],
+    ['02','Sobremesa em família','Potes de 1 e 2 litros com os sabores de sempre.','#linha-tradizionale','Tradizionale'],
+    ['03','Para dividir e celebrar','Recheios, trufas e dois sabores no mesmo pote.','#linha-celebrare','Celebrare e Combinatto'],
+    ['04','Para os pequenos','Sabores e formatos que as crianças adoram.','#linha-bambini','Bambini'],
+    ['05','Para levar na mão','Casquinha e sundae, prontos para o passeio.','#linha-outros','Conitos e Sundae']]
+    .map(m=>`<a class="momento rev" href="${m[3]}"><span class="n t">${m[0]}</span><h3 class="t">${m[1]}</h3><p>${m[2]}</p><span>${m[4]} →</span></a>`).join('');
+  const dest=['dois-amores-speciale','pe-de-moleque-celebrare','trufado-celebrare','unicornio-combinatto','skicoco-speciale','minissaia-difrutta','sensacoes-speciale','amore-mio-bambini','milho-verde-dilatte','amor-perfeito-celebrare'].map(s=>P.find(p=>p.slug===s)).filter(Boolean);
+  const nomes=Object.values(LINHAS).slice(0,8).map((l,i)=>`<span>${l.nome}</span><span class="e${i%2+1}">✦</span>`).join('');
+  return `
+<section class="hero" id="carrossel" aria-roledescription="carrossel" aria-label="Linhas Treviso">
+  ${SLIDES.map((s,i)=>`<div class="slide${i===0?' ativo':''}" role="group" aria-roledescription="slide" aria-label="${i+1} de ${SLIDES.length}: ${s.linha}" ${i===0?'':'aria-hidden="true"'} style="--halo:${s.halo}">
+  <div class="wrap">
+    <div class="slide-txt">
+      <span class="selo"><b>Desde 1993</b> Linha ${s.linha} · ${s.sub}</span>
+      ${i===0?'<h1':'<h2'} class="t hero-tit">${s.tit}${i===0?'</h1>':'</h2>'}
+      <p class="lead">${s.lead}</p>
+      <div class="acoes"><a class="btn btn-branco" href="#linha-${s.id}" ${i===0?'':'tabindex="-1"'}>Ver ${s.linha}</a><a class="btn btn-linha" href="#produtos" ${i===0?'':'tabindex="-1"'}>Todos os sabores</a></div>
+    </div>
+    <div class="hero-palco" aria-hidden="true">
+      <div class="halo"></div>
+      <img class="p1" src="img/${s.imgs[0]}.webp" alt="">
+      <img class="p2" src="img/${s.imgs[1]}.webp" alt="">
+      <img class="p3 ${s.pote?'pote':''}" src="img/${s.imgs[2]}.webp" alt="">
+    </div>
+  </div></div>`).join('')}
+  <div class="car-ctrl wrap">
+    <button class="car-btn" data-car="prev" aria-label="Linha anterior"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <div class="car-dots" role="group" aria-label="Escolher linha">${SLIDES.map((s,i)=>`<button class="car-dot" data-car="${i}" aria-label="${s.linha}" ${i===0?'aria-current="true"':''}><span>${s.linha}</span></button>`).join('')}</div>
+    <button class="car-btn" data-car="next" aria-label="Próxima linha"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    <button class="car-btn" data-car="pausa" aria-label="Pausar troca automática"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></button>
+  </div>
+</section>
+${arcos}
+<div class="faixa-nomes" aria-hidden="true"><div class="marquee t">${nomes}${nomes}</div></div>
+
+<section class="bloco">
+  <div class="wrap">
+    <div class="cab rev"><div><p class="eyebrow" style="color:var(--rosso)">Verde, bianco e rosso</p><h2 class="titulo t">Três cores, <em>um jeito</em> de fazer sorvete</h2>
+    <p class="sub">As cores da marca contam o que tem dentro de cada linha. Escolha por onde começar.</p></div></div>
+    <div class="familias">${fam}</div>
+  </div>
+</section>
+
+<section class="bloco" style="background:var(--creme);padding-top:90px">
+  <div class="wrap">
+    <div class="cab rev"><div><p class="eyebrow" style="color:var(--blu)">La famiglia Treviso</p><h2 class="titulo t">${Object.keys(LINHAS).length} linhas, <em>${P.length} produtos</em></h2>
+    <p class="sub">Picolés, potes de 1 a 10 litros, casquinhas e sundae, com embalagens que você reconhece de longe no freezer.</p></div>
+    <a class="btn btn-blu" href="#produtos">Ver todos os sabores ${seta}</a></div>
+    <div class="grade-linhas">${Object.keys(LINHAS).map(cardLinha).join('')}</div>
+  </div>
+</section>
+
+<section class="bloco">
+  <div class="wrap">
+    <div class="cab rev"><div><p class="eyebrow" style="color:var(--verde-esc)">Per ogni momento</p><h2 class="titulo t">Um sorvete para <em>cada momento</em></h2></div></div>
+    <div class="momentos">${momentos}</div>
+  </div>
+</section>
+
+<section class="bloco" style="padding-top:0">
+  <div class="wrap">
+    <div class="cab rev"><div><p class="eyebrow" style="color:var(--rosso)">Da vitrine</p><h2 class="titulo t">Para <em>provar</em> primeiro</h2></div><a class="btn btn-blu" href="#produtos">Catálogo completo ${seta}</a></div>
+    <div class="vitrine">${dest.map(cardProd).join('')}</div>
+  </div>
+</section>
+${emBreve()}
+
+${arcosTri}
+<section class="bloco escuro">
+  <div class="wrap duas">
+    <div class="rev"><p class="eyebrow" style="color:var(--verde)">Nossa história</p><h2 class="titulo t">De Marumbi <em>para o Paraná</em></h2>
+    <p class="sub">Tudo começou em agosto de 1993, quando Mauro Favaro e a família compraram um pequeno comércio em Marumbi. Em 1996 a Treviso já abastecia as cidades vizinhas. Hoje são mais de 150 cidades no Paraná, com a mesma essência familiar do começo.</p>
+    <p style="margin-top:30px"><a class="btn btn-branco" href="#sobre">Conheça a nossa história</a></p></div>
+    ${numeros()}
+  </div>
+</section>
+
+<section class="bloco" style="background:var(--creme)">
+  <div class="wrap duas">
+    <div class="rev"><p class="eyebrow" style="color:var(--blu)">Onde encontrar</p><h2 class="titulo t">Tem Treviso <em>perto de você</em></h2>
+    <p class="sub">Mercados, padarias, lanchonetes e sorveterias de várias cidades do Paraná vendem Treviso. Encontre o mais próximo.</p>
+    <p style="margin-top:28px"><a class="btn btn-blu" href="#onde">Buscar pela minha cidade ${seta}</a></p></div>
+    <div class="chips rev">${[...new Set(PONTOS.map(p=>p.cidade))].sort().map(c=>`<a class="chip" style="text-decoration:none;display:inline-flex;align-items:center" href="#onde">${esc(c)}</a>`).join('')}</div>
+  </div>
+</section>
+
+<section class="bloco azul" style="padding-top:0">
+  <div aria-hidden="true"><div class="arcos inv"></div></div>
+  <div class="wrap duas" style="padding-top:80px">
+    <div class="rev"><p class="eyebrow" style="color:#C4D6F5">Seja revendedor</p><h2 class="titulo t">Seja um <em>ponto</em> Treviso</h2>
+    <p class="sub">Leve as linhas Treviso para o seu mercado, padaria, lanchonete ou sorveteria. Preencha o formulário e o representante da sua região fala com você.</p>
+    ${vantagens()}</div>
+    <div class="rev">${formRevenda()}</div>
+  </div>
+</section>
+
+<section class="bloco">
+  <div class="wrap duas" style="align-items:start">
+    <div class="rev"><p class="eyebrow" style="color:var(--rosso)">Dúvidas frequentes</p><h2 class="titulo t">Perguntas <em>de quem ama</em> sorvete</h2>
+    <p class="sub">Não achou o que procurava? <a href="#contato">Fale com a gente.</a></p></div>
+    ${faq()}
+  </div>
+</section>`}
+
+function vantagens(){return `<div class="vantagens">
+  <div class="vant"><b class="t">Portfólio completo</b><p>Picolés, potes de 1 a 10 L, casquinhas e sundae para atender todo tipo de cliente, do mercado à sorveteria.</p></div>
+  <div class="vant"><b class="t">Representante na região</b><p>Atendimento por representantes que cobrem as cidades atendidas pela Treviso.</p></div>
+  <div class="vant"><b class="t">Marca no ponto de venda</b><p>Fachada de loja parceira e adesivo de freezer com a identidade Treviso. [Condições — confirmar]</p></div>
+  <div class="vant"><b class="t">Freezer em comodato</b><p>Liberado após análise de crédito. Entrega semanal ou quinzenal, conforme o giro da sua loja.</p></div>
+</div>`}
+
+function faq(){const q=[
+  ['Onde posso comprar sorvete Treviso?','Em mercados, padarias, lanchonetes e sorveterias parceiras. Use a página Onde encontrar para ver os pontos da sua cidade.'],
+  ['A Treviso vende direto para o consumidor?','Sim, com retirada na fábrica, em Marumbi (PR). A Treviso não faz entrega para consumidor final. [Horário de atendimento — confirmar]'],
+  ['Como funciona o freezer em comodato?','O freezer é liberado depois de uma análise de crédito do estabelecimento. Aprovado o cadastro, o pedido mínimo fica entre R$ 1.800 e R$ 3.000, com entrega semanal ou quinzenal conforme o giro.'],
+  ['Como faço para revender Treviso?','Preencha o formulário em Seja revendedor. O representante da sua região entra em contato pelo WhatsApp.'],
+  ['Onde vejo ingredientes, alergênicos e tabela nutricional?','Todas essas informações estão impressas na embalagem de cada produto. [Em breve também na página de cada sabor.]'],
+  ['Em quais cidades a Treviso está?','A Treviso atende mais de 150 cidades do Paraná, com cerca de 2.500 pontos de venda, a partir da fábrica em Marumbi.'],
+  ['A Treviso tem opções sem açúcar ou sem lactose?','[Confirmar com a Treviso]']];
+  return `<div class="faq rev">${q.map(([a,b])=>`<details><summary>${a}</summary><p>${b}</p></details>`).join('')}</div>`}
+
+function formRevenda(){return `<form class="form" id="form-revenda" novalidate>
+  <div id="form-campos" style="display:flex;flex-direction:column;gap:14px">
+  <div class="campo"><label for="f-nome">Seu nome</label><input id="f-nome" name="nome" required autocomplete="name"></div>
+  <div class="campo"><label for="f-estab">Nome do estabelecimento</label><input id="f-estab" name="estab" required autocomplete="organization"></div>
+  <div class="linha2">
+    <div class="campo"><label for="f-cid">Cidade</label><input id="f-cid" name="cidade" required autocomplete="address-level2"></div>
+    <div class="campo"><label for="f-wpp">WhatsApp</label><input id="f-wpp" name="wpp" type="tel" required placeholder="(43) 9 0000-0000" autocomplete="tel"></div>
+  </div>
+  <div class="campo"><label for="f-tipo">Tipo de negócio</label><select id="f-tipo" name="tipo"><option>Mercado</option><option>Padaria</option><option>Lanchonete</option><option>Sorveteria</option><option>Conveniência</option><option>Outro</option></select></div>
+  <label class="consent"><input type="checkbox" id="f-lgpd" required> Autorizo a Treviso a usar estes dados para entrar em contato sobre revenda, conforme a <a href="#privacidade">Política de privacidade</a>.</label>
+  <button class="btn btn-rosso" type="submit" style="min-height:58px;font-size:18px">Quero ser revendedor</button>
+  <small style="color:var(--cinza)">Prévia: na versão final, o envio abre o WhatsApp do comercial com os dados preenchidos.</small>
+  </div>
+  <div class="ok" id="form-ok" hidden>
+    <svg aria-hidden="true" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--blu)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>
+    <p class="t" style="font-size:46px;color:var(--blu-esc);margin:12px 0">Grazie!</p>
+    <p style="margin:0;color:var(--cinza)">Prévia: na versão final, esta etapa abre a conversa no WhatsApp.</p>
+  </div>
+</form>`}
+
+function produtos(){
+  const ls=Object.keys(LINHAS);
+  const l=estado.linha!=='todas'?LINHAS[estado.linha]:null;
+  return `<section class="bloco" ${l?`style="background:${l.bg}"`:''}><div class="wrap">
+  <div class="cab"><div><p class="eyebrow" style="color:${l?l.ink:'var(--blu)'}">${l?esc(l.fmt):'Catálogo'}</p><h1 class="titulo t" ${l?`style="color:${l.ink}"`:''}>${l?esc(l.nome):'Nossos <em>sabores</em>'}</h1>
+  <p class="sub" ${l?`style="color:${l.ink}"`:''}>${l?esc(l.txt):'Filtre por linha ou formato e toque em um sabor para ver os detalhes.'}</p></div></div>
+  <div class="filtros">
+    <div class="chips" role="group" aria-label="Linha"><button class="chip" data-linha="todas">Todas</button>${ls.map(id=>`<button class="chip" data-linha="${id}">${LINHAS[id].nome}</button>`).join('')}</div>
+    <div class="chips" role="group" aria-label="Formato">${['todos','Picolé','Pote','Outros'].map(f=>`<button class="chip" data-formato="${f}">${f==='todos'?'Todos os formatos':f+(f==='Outros'?'':'s')}</button>`).join('')}</div>
+    <div class="busca"><label for="q" class="sr">Buscar sabor</label><input id="q" type="search" placeholder="Buscar sabor (ex.: morango)" value="${esc(estado.busca)}"></div>
+    <span class="contagem" id="contagem" aria-live="polite"></span>
+  </div>
+  <div class="grade-prod" id="grade"></div>
+  </div></section>`}
+
+function filtrar(){
+  const q=sem(estado.busca.trim());
+  const lista=P.filter(p=>(estado.linha==='todas'||p.linha===estado.linha)
+    &&(estado.formato==='todos'||(estado.formato==='Outros'?!/^(Picolé|Pote)/.test(p.formato):p.formato.startsWith(estado.formato)))
+    &&(!q||sem(p.nome+' '+LINHAS[p.linha].nome).includes(q)));
+  $('#grade').innerHTML=lista.length?lista.map(cardProd).join(''):`<div class="vazio" style="grid-column:1/-1">Nenhum sabor encontrado com esses filtros.</div>`;
+  $('#contagem').textContent=lista.length+(lista.length===1?' produto':' produtos');
+  document.querySelectorAll('[data-linha]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.linha===estado.linha));
+  document.querySelectorAll('[data-formato]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.formato===estado.formato));
+}
+
+function produto(slug){
+  const p=P.find(x=>x.slug===slug); if(!p) return null;
+  const l=LINHAS[p.linha]; const rel=P.filter(x=>x.linha===p.linha&&x.slug!==p.slug).slice(0,4);
+  return `<section class="bloco"><div class="wrap">
+  <a class="voltar" href="#linha-${p.linha}"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg> Voltar para ${esc(l.nome)}</a>
+  <div class="prod" style="--bg:${l.bg};--ink:${l.ink}">
+    <div class="prod-foto">${p.img?`<img src="${p.img}" alt="${esc(l.nome+' '+p.nome)}">`:`<div class="sem-foto" style="height:300px;max-width:360px">Imagem em breve</div>`}</div>
+    <div>
+      <p class="eyebrow" style="color:${l.ink}">${esc(l.nome)} · ${esc(p.formato)}</p>
+      <h1 class="t">${esc(p.nome)}</h1>
+      <dl class="ficha">
+        <dt>Linha</dt><dd><a href="#linha-${p.linha}">${esc(l.nome)}</a></dd>
+        <dt>Formato</dt><dd>${esc(p.formato)}</dd>
+        <dt>Tamanho</dt><dd>${p.tam?esc(p.tam):'[a confirmar]'}</dd>
+        <dt>Descrição</dt><dd>${p.desc?esc(p.desc):'[a confirmar]'}</dd>
+      </dl>
+      <p class="pend">Ingredientes, alergênicos e tabela nutricional estão na embalagem. [Entram aqui quando a Treviso enviar.]</p>
+      <p style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-blu" href="#onde">Onde encontrar</a><a class="btn" style="background:var(--blu-claro);color:var(--blu-esc)" href="#revenda">Quero revender</a></p>
+    </div>
+  </div>
+  ${rel.length?`<h2 class="t" style="font-size:44px;margin:84px 0 24px;color:var(--blu-esc)">Mais da linha ${esc(l.nome)}</h2><div class="grade-prod">${rel.map(cardProd).join('')}</div>`:''}
+  </div></section>`}
+
+function sobre(){return `<section class="hero" style="padding-bottom:0"><div class="wrap" style="grid-template-columns:1fr;padding-bottom:70px">
+  <div><span class="selo"><b>1993</b> Marumbi · Paraná</span><h1 class="t" style="max-width:900px">Uma fábrica do Paraná <em>com nome italiano</em></h1>
+  <p class="lead" style="max-width:640px">Uma empresa familiar que começou em 1993, em Marumbi, e hoje leva sorvete a mais de 150 cidades do Paraná.</p></div></div></section>
+  ${arcosTri}
+  <section class="bloco"><div class="wrap duas" style="align-items:start">
+    <div class="rev"><p class="eyebrow" style="color:var(--rosso)">Linha do tempo</p><h2 class="titulo t">Nossa <em>história</em></h2>
+    <p class="sub">Em agosto de 1993, Mauro Favaro e a família viram o potencial do mercado de sorvetes e compraram um pequeno comércio em Marumbi. A cidade era pequena, as vendas eram limitadas e a gestão se aprendia na prática. O que nunca faltou foi bom atendimento, respeito ao cliente e capricho no produto.</p>
+    <p class="sub">A qualidade gerou procura, e a procura levou a Treviso para as cidades vizinhas. Nos anos 2000, a marca chegou aos restaurantes, padarias, supermercados e mercearias, ficando mais perto de quem compra. Hoje segue crescendo sem perder a essência familiar.</p>
+    <p class="pend">[Origem do nome Treviso — confirmar se entra]</p></div>
+    <ol class="tempo rev">
+      <li style="--c:var(--verde)"><span class="ano t">1993</span><p>Em agosto, Mauro Favaro e a família compram um comércio em Marumbi (PR). Nasce a Treviso.</p></li>
+      <li style="--c:var(--blu)"><span class="ano t">1996</span><p>A Treviso passa a abastecer as cidades vizinhas.</p></li>
+      <li style="--c:var(--rosso)"><span class="ano t">Anos 2000</span><p>Chegada a restaurantes, padarias, supermercados e mercearias.</p></li>
+      <li style="--c:var(--verde)"><span class="ano t">2023</span><p>Nova identidade visual, com os arcos nas cores verde, blu e rosso.</p></li>
+      <li style="--c:var(--blu)"><span class="ano t">2024–2025</span><p>Nova família de embalagens, com as linhas Difrutta, Dilatte, Speciale, Celebrare, Tradizionale, Combinatto e Bambini.</p></li>
+      <li style="--c:var(--rosso)"><span class="ano t">Hoje</span><p>Cerca de 2.500 pontos de venda em mais de 150 cidades do Paraná.</p></li>
+    </ol>
+  </div></section>
+  <section class="bloco escuro"><div class="wrap duas">
+    <div class="rev"><p class="eyebrow" style="color:var(--verde)">Em números</p><h2 class="titulo t">A Treviso <em>hoje</em></h2>
+    <p class="sub">Uma fábrica moderna, uma rede de distribuição que cobre o Paraná e uma equipe que cresce junto com a empresa. Números informados pela Treviso em novembro de 2026.</p></div>
+    ${numeros()}</div></section>
+  <section class="bloco"><div class="wrap duas">
+    <div class="rev"><p class="eyebrow" style="color:var(--blu)">A fábrica</p><h2 class="titulo t">Por dentro <em>da produção</em></h2>
+    <p class="sub">São cerca de 5.500 m² de área construída, com equipamentos modernos e processos pensados para manter o padrão de qualidade. A equipe passa por treinamento constante, e boa parte dos colaboradores está na Treviso há mais de 10 anos.</p></div>
+    <div class="vazio rev" style="min-height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
+      <svg aria-hidden="true" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9.5v5l4-2.5z"/></svg>
+      <b>Vídeo e fotos da fábrica</b><span>[Aguardando material de produção]</span></div>
+  </div></section>`}
+
+function onde(){
+  const cidades=[...new Set(PONTOS.map(p=>p.cidade+' – '+p.uf))].sort();
+  return `<section class="bloco" style="background:var(--creme)"><div class="wrap">
+  <div class="cab rev"><div><p class="eyebrow" style="color:var(--blu)">Onde encontrar</p><h1 class="titulo t">Tem Treviso <em>perto de você</em></h1>
+  <p class="sub">São cerca de 2.500 pontos de venda em mais de 150 cidades do Paraná. Escolha sua cidade ou busque pelo nome do estabelecimento.</p></div></div>
+  <div class="filtros">
+    <div class="chips" role="group" aria-label="Cidade"><button class="chip" data-cidade="todas">Todas as cidades</button>${cidades.map(c=>`<button class="chip" data-cidade="${esc(c)}">${esc(c)}</button>`).join('')}</div>
+    <div class="busca"><label for="qp" class="sr">Buscar ponto de venda</label><input id="qp" type="search" placeholder="Buscar cidade ou estabelecimento"></div>
+    <span class="contagem" id="cont-pontos" aria-live="polite"></span>
+  </div>
+  <div class="grade-pontos" id="grade-pontos"></div>
+  <p class="pend" style="margin-top:28px">Prévia: pontos encontrados em pesquisa pública, só para demonstração. A Treviso vai decidir se o site mostra os pontos com endereço ou só a lista de cidades atendidas.</p>
+  <div class="duas" style="margin-top:60px"><div><h2 class="t" style="font-size:44px;color:var(--blu-esc);margin:0">Não achou um ponto na sua cidade?</h2><p class="sub">Indique um estabelecimento ou leve a Treviso para o seu negócio. Também dá para comprar direto na fábrica, com retirada em Marumbi.</p></div><p><a class="btn btn-rosso" href="#revenda">Quero revender Treviso</a></p></div>
+  </div></section>`}
+
+function filtrarPontos(){
+  const q=sem(estado.qp||'');
+  const lista=PONTOS.filter(p=>(estado.cidade==='todas'||p.cidade+' – '+p.uf===estado.cidade)&&(!q||sem(p.nome+' '+p.cidade+' '+p.tipo).includes(q)));
+  $('#grade-pontos').innerHTML=lista.length?lista.map(p=>{const b=encodeURIComponent(p.nome+' '+(p.end||'')+' '+p.cidade+' '+p.uf);return `<article class="ponto">
+    <span class="tipo">${esc(p.tipo)}</span><h3 class="t">${esc(p.nome)}</h3>
+    <p>${p.end?esc(p.end)+'<br>':''}${esc(p.cidade)} – ${esc(p.uf)}</p><span class="ex">Exemplo · a confirmar</span>
+    <a href="https://www.google.com/maps/search/?api=1&query=${b}" target="_blank" rel="noopener">Ver no mapa <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a></article>`}).join(''):`<div class="vazio" style="grid-column:1/-1">Nenhum ponto encontrado. <a href="#revenda">Quer levar a Treviso para sua cidade?</a></div>`;
+  $('#cont-pontos').textContent=lista.length+(lista.length===1?' ponto':' pontos');
+  document.querySelectorAll('[data-cidade]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.cidade===estado.cidade));
+}
+
+function revenda(){return `<section class="bloco azul"><div class="wrap duas" style="align-items:start">
+  <div class="rev"><p class="eyebrow" style="color:#C4D6F5">Seja revendedor</p><h1 class="titulo t">Seja um <em>ponto</em> Treviso</h1>
+  <p class="sub">Leve as linhas Treviso para o seu mercado, padaria, lanchonete ou sorveteria. Preencha e o representante da sua região fala com você pelo WhatsApp.</p>
+  ${vantagens()}</div>
+  <div class="rev">${formRevenda()}</div></div></section>
+  <section class="bloco"><div class="wrap duas" style="align-items:start">
+    <div class="rev"><p class="eyebrow" style="color:var(--rosso)">Como funciona</p><h2 class="titulo t">Do cadastro <em>ao freezer</em></h2></div>
+    <ol class="tempo rev">
+      <li style="--c:var(--verde)"><span class="ano t">1. Cadastro</span><p>Você preenche o formulário com os dados do seu negócio.</p></li>
+      <li style="--c:var(--blu)"><span class="ano t">2. Contato</span><p>O representante da sua região fala com você pelo WhatsApp.</p></li>
+      <li style="--c:var(--rosso)"><span class="ano t">3. Análise de crédito</span><p>A Treviso analisa o cadastro do seu estabelecimento para liberar o freezer em comodato.</p></li>
+      <li style="--c:var(--verde)"><span class="ano t">4. Primeiro pedido</span><p>Com o cadastro aprovado, o pedido mínimo fica entre R$ 1.800 e R$ 3.000. [Condições de pagamento — confirmar]</p></li>
+      <li style="--c:var(--blu)"><span class="ano t">5. Entrega</span><p>Entregas semanais ou quinzenais, de acordo com o giro do seu ponto.</p></li>
+    </ol>
+  </div></section>`}
+
+function contato(){return `<section class="bloco"><div class="wrap">
+  <div class="cab rev"><div><p class="eyebrow" style="color:var(--blu)">Contato</p><h1 class="titulo t">Fale com <em>a Treviso</em></h1><p class="sub">Para revenda, use o formulário de <a href="#revenda">Seja revendedor</a>. Para outros assuntos, escolha o canal abaixo.</p></div></div>
+  <div class="contatos">
+    <div class="contato rev"><span class="eyebrow" style="color:var(--rosso)">E-mail</span><b class="t" style="word-break:break-all;font-size:clamp(20px,2.2vw,30px)">marketing@favarodistribuidora.com</b></div>
+    <div class="contato rev"><span class="eyebrow" style="color:var(--rosso)">Telefone</span><b class="t">(43) 3441-1490</b><span>[WhatsApp comercial — confirmar]</span></div>
+    <div class="contato rev"><span class="eyebrow" style="color:var(--rosso)">Instagram</span><b class="t">@sorvetestreviso</b><a href="https://www.instagram.com/sorvetestreviso/" target="_blank" rel="noopener">Abrir perfil</a></div>
+  </div>
+  <div class="contato rev" style="margin-top:16px"><span class="eyebrow" style="color:var(--rosso)">Fábrica</span><b class="t">Rua Otavio Cividini, [nº] · Marumbi – PR</b><span>Sorvetes Treviso LTDA · CNPJ 00.153.607/0001-01</span><span>Compra para consumidor final: retirada na fábrica (sem entrega).</span><span>[Trabalhe conosco — confirmar se entra no site]</span></div>
+  </div></section>`}
+
+function privacidade(){return `<section class="bloco"><div class="wrap texto">
+  <p class="eyebrow" style="color:var(--blu)">LGPD</p><h1 class="titulo t">Política de <em>privacidade</em></h1>
+  <p class="pend" style="margin-top:20px">Rascunho para revisão jurídica da Treviso antes da publicação. Campos entre colchetes dependem do cliente.</p>
+  <p><b>Última atualização:</b> [data da publicação]</p>
+  <h2 class="t">Quem somos</h2>
+  <p>Este site é mantido por Sorvetes Treviso LTDA, CNPJ 00.153.607/0001-01, com sede na Rua Otavio Cividini, [nº], Marumbi – PR ("Treviso"). Para assuntos de privacidade, fale com [nome ou cargo do encarregado de dados] pelo e-mail [e-mail de privacidade].</p>
+  <h2 class="t">Quais dados coletamos</h2>
+  <ul><li><b>Formulário de revenda:</b> nome, nome do estabelecimento, cidade, WhatsApp e tipo de negócio, informados por você.</li>
+  <li><b>Navegação:</b> dados técnicos como páginas visitadas, tipo de dispositivo e navegador, coletados por cookies de medição apenas se você aceitar.</li></ul>
+  <h2 class="t">Para que usamos</h2>
+  <ul><li>Responder ao seu interesse em revender produtos Treviso, com base no seu consentimento.</li>
+  <li>Entender como o site é usado e melhorá-lo, com base no seu consentimento para cookies de medição.</li>
+  <li>Cumprir obrigações legais, quando aplicável.</li></ul>
+  <h2 class="t">Com quem compartilhamos</h2>
+  <p>Com os representantes comerciais da Treviso da sua região, para o atendimento, e com fornecedores de tecnologia que operam o site [hospedagem; ferramenta de medição], sempre limitados ao necessário. Não vendemos seus dados.</p>
+  <h2 class="t">Por quanto tempo guardamos</h2>
+  <p>[Prazo de guarda dos cadastros de revenda — definir com a Treviso]. Depois disso, os dados são excluídos ou anonimizados.</p>
+  <h2 class="t">Cookies</h2>
+  <p>Usamos cookies essenciais para o funcionamento do site e, se você permitir, cookies de medição. Você pode mudar sua escolha a qualquer momento <button class="btn" style="min-height:40px;padding:6px 14px;background:var(--blu-claro);color:var(--blu-esc)" id="ck-reabrir">revendo as preferências de cookies</button>.</p>
+  <h2 class="t">Seus direitos</h2>
+  <p>Você pode pedir confirmação, acesso, correção, exclusão, portabilidade e informações sobre o uso dos seus dados, além de revogar o consentimento, escrevendo para [e-mail de privacidade]. Você também pode procurar a Autoridade Nacional de Proteção de Dados (ANPD).</p>
+  </div></section>`}
+
+function linha(id){if(!LINHAS[id])return null;estado.linha=id;estado.formato='todos';estado.busca='';return produtos()}
+
+function render(){
+  const h=location.hash.replace('#','')||'inicio';
+  let html=null, nav='';
+  if(h==='conteudo') return;
+  if(h==='inicio') html=home();
+  else if(h==='produtos'){estado.linha='todas';estado.formato='todos';html=produtos();nav='produtos'}
+  else if(h.startsWith('linha-')){html=linha(h.slice(6));nav='produtos'}
+  else if(h.startsWith('p-')){html=produto(h.slice(2));nav='produtos'}
+  else if(h==='sobre'){html=sobre();nav='sobre'}
+  else if(h==='onde'){html=onde();nav='onde'}
+  else if(h==='revenda'){html=revenda();nav='revenda'}
+  else if(h==='contato'){html=contato();nav='contato'}
+  else if(h==='privacidade'){html=privacidade()}
+  if(!html) html=home();
+  main.innerHTML=`<div class="pagina">${html}</div>`;
+  document.querySelectorAll('[data-nav]').forEach(a=>{if(a.dataset.nav===nav)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+  $('#menu').classList.remove('aberto');$('.menu-btn').setAttribute('aria-expanded','false');
+  window.scrollTo({top:0,behavior:'instant'});
+  if($('#grade')) filtrar();
+  if($('#grade-pontos')){estado.cidade='todas';estado.qp='';filtrarPontos()}
+  ligar();
+}
+
+let carTimer=null, carIdx=0, carPausado=false;
+const reduzMov = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+function carIr(i){
+  const c=$('#carrossel'); if(!c) return;
+  const sl=[...c.querySelectorAll('.slide')]; carIdx=(i+sl.length)%sl.length;
+  sl.forEach((s,k)=>{const at=k===carIdx;s.classList.toggle('ativo',at);if(at)s.removeAttribute('aria-hidden');else s.setAttribute('aria-hidden','true');s.querySelectorAll('a').forEach(a=>at?a.removeAttribute('tabindex'):a.setAttribute('tabindex','-1'))});
+  c.querySelectorAll('.car-dot').forEach((d,k)=>{if(k===carIdx){d.setAttribute('aria-current','true');const sp=d.querySelector('span');sp.style.animation='none';void sp.offsetWidth;sp.style.animation=''}else d.removeAttribute('aria-current')});
+  carAgendar();
+}
+function carAgendar(){clearTimeout(carTimer); if(!carPausado && !reduzMov && $('#carrossel')) carTimer=setTimeout(()=>carIr(carIdx+1),6000)}
+function carLigar(){
+  const c=$('#carrossel'); clearTimeout(carTimer); if(!c) return; carIdx=0;
+  if(reduzMov){carPausado=true;c.classList.add('pausado')}
+  c.querySelectorAll('[data-car]').forEach(b=>b.onclick=()=>{const v=b.dataset.car;
+    if(v==='prev') carIr(carIdx-1); else if(v==='next') carIr(carIdx+1);
+    else if(v==='pausa'){carPausado=!carPausado;c.classList.toggle('pausado',carPausado);b.setAttribute('aria-label',carPausado?'Retomar troca automática':'Pausar troca automática');b.innerHTML=carPausado?'<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>':'<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';carAgendar()}
+    else carIr(+v)});
+  c.addEventListener('mouseenter',()=>{clearTimeout(carTimer);c.classList.add('pausado')});
+  c.addEventListener('mouseleave',()=>{if(!carPausado){c.classList.remove('pausado');carAgendar()}});
+  c.addEventListener('focusin',()=>{clearTimeout(carTimer);c.classList.add('pausado')});
+  let x0=null; c.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+  c.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)carIr(carIdx+(dx<0?1:-1));x0=null});
+  carAgendar();
+}
+
+function ligar(){
+  carLigar();
+  document.querySelectorAll('[data-linha]').forEach(b=>b.onclick=()=>{estado.linha=b.dataset.linha;filtrar()});
+  document.querySelectorAll('[data-formato]').forEach(b=>b.onclick=()=>{estado.formato=b.dataset.formato;filtrar()});
+  const q=$('#q'); if(q) q.oninput=()=>{estado.busca=q.value;filtrar()};
+  document.querySelectorAll('[data-cidade]').forEach(b=>b.onclick=()=>{estado.cidade=b.dataset.cidade;filtrarPontos()});
+  const qp=$('#qp'); if(qp) qp.oninput=()=>{estado.qp=qp.value;filtrarPontos()};
+  const f=$('#form-revenda'); if(f) f.onsubmit=e=>{e.preventDefault();
+    const falta=[...f.querySelectorAll('[required]')].find(i=>i.type==='checkbox'?!i.checked:!i.value.trim());
+    if(falta){falta.focus();if(falta.type!=='checkbox')falta.style.borderColor='var(--rosso)';return}
+    $('#form-campos').hidden=true;$('#form-ok').hidden=false};
+  const rb=$('#ck-reabrir'); if(rb) rb.onclick=()=>{$('#cookies').hidden=false};
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.1});
+  document.querySelectorAll('.rev').forEach(el=>io.observe(el));
+}
+
+function lerCk(){try{return localStorage.getItem('treviso-cookies')}catch(e){return null}}
+function gravarCk(v){try{localStorage.setItem('treviso-cookies',v)}catch(e){} $('#cookies').hidden=true}
+if(!lerCk()) $('#cookies').hidden=false;
+$('#ck-aceitar').onclick=()=>gravarCk('todos');
+$('#ck-essenciais').onclick=()=>gravarCk('essenciais');
+$('.menu-btn').onclick=()=>{const m=$('#menu');const ab=m.classList.toggle('aberto');$('.menu-btn').setAttribute('aria-expanded',ab)};
+window.addEventListener('hashchange',render);
+render();
+</script>
+</body>
+</html>
