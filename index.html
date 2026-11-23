@@ -252,6 +252,14 @@ section.bloco{padding:100px 0}
 
 /* pontos */
 .grade-pontos{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.onde-filtros{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:12px;width:100%}
+.campo-cid select{width:100%;min-height:56px;border-radius:999px;border:1.5px solid #D5DEEE;background:#fff;padding:0 22px;font:inherit;font-size:17px;color:var(--blu-esc);font-variation-settings:'wdth' 300,'wght' 600;appearance:auto}
+.cidade-card{background:#fff;border:1px solid #E5EAF3;border-radius:20px;padding:22px;text-align:left;display:flex;flex-direction:column;gap:6px;cursor:pointer;font:inherit;transition:transform .3s,box-shadow .3s,border-color .3s;min-height:110px}
+.cidade-card:hover,.cidade-card:focus-visible{transform:translateY(-4px);box-shadow:0 16px 30px rgba(15,27,51,.1);border-color:var(--blu)}
+.cidade-card b{font-size:30px;color:var(--blu-esc);line-height:1}
+.cidade-card span{color:var(--cinza);font-size:15px}
+.link-voltar{background:none;border:0;padding:0;font:inherit;color:var(--blu);text-decoration:underline;cursor:pointer}
+@media (max-width:760px){.onde-filtros{grid-template-columns:1fr}}
 .ponto{background:#fff;border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:8px;border:1px solid #E5EAF3;transition:transform .3s,box-shadow .3s}
 .ponto:hover{transform:translateY(-4px);box-shadow:0 16px 30px rgba(15,27,51,.1)}
 .ponto .tipo{align-self:flex-start;background:var(--blu-claro);color:var(--blu-esc);font-variation-settings:'wdth' 400,'wght' 700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:4px 10px}
@@ -471,19 +479,226 @@ const P = [
 
 // Pontos de venda: EXEMPLOS de pesquisa pública (16/11/2026) para a prévia. A lista oficial virá da Treviso.
 const PONTOS = [
- {nome:'Sorvetes Express', tipo:'Sorveteria e delivery', end:'Av. Munhoz da Rocha, 413, Centro', cidade:'Mandaguaçu', uf:'PR'},
- {nome:'Rei do Lanche', tipo:'Lanchonete', end:'Av. Romário Martins, 157, Centro', cidade:'Rolândia', uf:'PR'},
- {nome:'Treviso Sorvetes e Açaí', tipo:'Sorveteria', end:'Rua Senador Souza Naves, 823', cidade:'Jandaia do Sul', uf:'PR'},
- {nome:'Sorveteria Treviso', tipo:'Sorveteria', end:'Av. 7 de Setembro, 752', cidade:'Marumbi', uf:'PR'},
- {nome:'Treviso Sorvetes Mandaguari', tipo:'Sorveteria', end:'', cidade:'Mandaguari', uf:'PR'},
- {nome:'Treviso Sorvetes Marialva', tipo:'Sorveteria', end:'', cidade:'Marialva', uf:'PR'},
- {nome:'Treviso Sorvetes Cambira', tipo:'Sorveteria', end:'', cidade:'Cambira', uf:'PR'},
- {nome:'Sorveteria Treviso Arapongas', tipo:'Sorveteria', end:'', cidade:'Arapongas', uf:'PR'},
- {nome:'Treviso Sorvetes Borrazópolis', tipo:'Sorveteria', end:'', cidade:'Borrazópolis', uf:'PR'},
- {nome:'Treviso Sorvetes Lunardelli', tipo:'Sorveteria', end:'', cidade:'Lunardelli', uf:'PR'},
- {nome:'Treviso Novo Itacolomi', tipo:'Sorveteria', end:'', cidade:'Novo Itacolomi', uf:'PR'},
- {nome:'Sorveteria Treviso', tipo:'Sorveteria e lanchonete', end:'', cidade:'Jardim Alegre', uf:'PR'},
- {nome:'Treviso Sorvetes Zona 23', tipo:'Sorveteria e delivery', end:'Zona 23', cidade:'Maringá', uf:'PR'}
+ {"nome": "Casa de Carnes Bom Jesus", "end": "Rua Rio Grande do Sul, 1906, Vila Mineira", "cidade": "Barbosa Ferraz", "uf": "PR"},
+ {"nome": "Conveniência Mille", "end": "Rua Rio Grande do Sul, 771B, Centro", "cidade": "Barbosa Ferraz", "uf": "PR"},
+ {"nome": "Posto Barbosa", "end": "Rua Rio Grande do Sul, 1617, Vila Mineira", "cidade": "Barbosa Ferraz", "uf": "PR"},
+ {"nome": "Supermercados Coimbra", "end": "Rua Marechal Deodoro, 1010, Centro", "cidade": "Barbosa Ferraz", "uf": "PR"},
+ {"nome": "Bar Central", "end": "Av. Júlio Alves Machado, 320, Centro", "cidade": "Bom Sucesso", "uf": "PR"},
+ {"nome": "Bar e Mercado Abrantes", "end": "Rua Nahur Vanzella, 1023, Centro", "cidade": "Bom Sucesso", "uf": "PR"},
+ {"nome": "Buteco do Magrão", "end": "Estrada Borba, s/n, Sítio Cimere", "cidade": "Bom Sucesso", "uf": "PR"},
+ {"nome": "Conveniência Cesinha", "end": "Av. Júlio Alves Machado, 230, Centro", "cidade": "Bom Sucesso", "uf": "PR"},
+ {"nome": "Conveniência Plano B", "end": "Rua Araguari, 249, Conj. Hab Amizade II", "cidade": "Bom Sucesso", "uf": "PR"},
+ {"nome": "Hotel Restaurante - Soares", "end": "Rod. BR 369, 248, Parque Industrial", "cidade": "Bom Sucesso", "uf": "PR"},
+ {"nome": "Iron Muscle Gym", "end": "Av. Júlio Alves Machado, 12, Centro", "cidade": "Bom Sucesso", "uf": "PR"},
+ {"nome": "Mercado Primavera", "end": "Av. Júlio Alves Machado, 431, Centro", "cidade": "Bom Sucesso", "uf": "PR"},
+ {"nome": "Mercado São Jorge", "end": "Av. Júlio Alves Machado, 107, Centro", "cidade": "Bom Sucesso", "uf": "PR"},
+ {"nome": "Mercearia da Sandra", "end": "Rua Laranjal, 101, Centro", "cidade": "Bom Sucesso", "uf": "PR"},
+ {"nome": "Mercearia do Mineiro", "end": "Rua Bom Fim, 345, Centro", "cidade": "Bom Sucesso", "uf": "PR"},
+ {"nome": "Mercearia Progresso", "end": "Rua Agostinho Freitas Mendonça, 240, Centro", "cidade": "Bom Sucesso", "uf": "PR"},
+ {"nome": "Mercearia Rodrigues", "end": "Rua Delegado Pedro Silveira, 11, Mutirão", "cidade": "Bom Sucesso", "uf": "PR"},
+ {"nome": "Padaria Brasil", "end": "Av. Júlio Alves Machado, 20, Centro", "cidade": "Bom Sucesso", "uf": "PR"},
+ {"nome": "Pesqueiro do Diógenes", "end": "Chácara Santa Amélia, Zona Rural", "cidade": "Bom Sucesso", "uf": "PR"},
+ {"nome": "Restaurante Skinão", "end": "Rua Alzira Rozendo, 1000, Centro", "cidade": "Bom Sucesso", "uf": "PR"},
+ {"nome": "Supermercado Bom Preço", "end": "Av. Júlio Alves Machado, 394, Centro", "cidade": "Bom Sucesso", "uf": "PR"},
+ {"nome": "Supermercado GS", "end": "Av. Júlio Alves Machado, 76, Centro", "cidade": "Bom Sucesso", "uf": "PR"},
+ {"nome": "Supermercado São Pedro", "end": "Rua Delegado Pedro Silveira, 306, Centro", "cidade": "Bom Sucesso", "uf": "PR"},
+ {"nome": "Vila Bebidas", "end": "Rua Belizário Gomes Mendonca, 148, Bom Fim", "cidade": "Bom Sucesso", "uf": "PR"},
+ {"nome": "Arena L C", "end": "Rod. PR 274 KM 01, 01, Zona Rural", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Bar do Miguel", "end": "Rua Marajó, s/n, Vila Santa", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Bar do Nota", "end": "Av. Brasil, 670, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Cantinho dos Amigos", "end": "Av. Brasil, 749, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Casa Pereira", "end": "Av. Rio Grande do Sul, 378, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "FA Salgados", "end": "Rua Jonaline, 476, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Farmácia Santa Rita", "end": "Av. Brasil, 1673, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Gusttavo Supermercado", "end": "Av. Brasil, 1659, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Hilberath", "end": "Rua São Paulo, 19, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Imperium Choperia e Petiscaria", "end": "Av. Brasil, 36, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Invictus Lanchonete", "end": "Av. Paraná, 239, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Jhoni s Espetaria", "end": "Praça da República, 50, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "K10 Beer", "end": "Av. Paraná, 441, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Quiosque Ponto Certo", "end": "10A Avenida Paraná, 900, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Leomarques Supermercado", "end": "Av. Belo Horizonte, 130, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Mercado Bengozi", "end": "Rua Penápolis, 23, Distrito Sete de Maio", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Mercado do Edinho", "end": "Rua Júlio Sapatini, 358, Jardim Vieceli", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Mercado e Distribuidora Brito", "end": "Av. Paraná, 818, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Mercado e Lanchonete", "end": "Av. Jose Naline, 40, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Mercado Joval", "end": "Av. Paraná, 298, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Mercado Sabino", "end": "Rua Ponta Grossa, 424, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Mercado Santa Cruz", "end": "Av. Brasil, 927, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Mercado Sotti", "end": "Av. Brasil, 165-b, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Minimercado Birigui", "end": "Av. Canadá, 97, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Nao Entre", "end": "Av. Rio Grande do Sul, 26, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Padaria Massa Dourada", "end": "Rua Minas Gerais, 27, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Posto Borrazopolis", "end": "Av. Paraná, 559, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Posto Cambira", "end": "Av. Brasil, 950, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Posto Parana", "end": "Rua Gabriel Seidel, 190, Jardim Pérola", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Posto Portugal", "end": "Rua Boa Esperanca, 1693, Vila Bel Lar", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Posto Sotti", "end": "Av. Brasil, 345, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Rancho Figueira", "end": "Rod. Florindo Picoli, Chácara Figueira, s/n, Zona Rural", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Rede Fama Supermercados", "end": "Av. Nalini, 352, Jardim Belo Horizonte", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Restaurante e Petiscaria Bahamas", "end": "Av. Paraná, 252, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Tomodachis da Neuza", "end": "Praça República, 160, Centro", "cidade": "Borrazópolis", "uf": "PR"},
+ {"nome": "Panificadora Corumbataí", "end": "Rua Tocantins, 160A, Centro", "cidade": "Corumbataí do Sul", "uf": "PR"},
+ {"nome": "Super Via Carnes", "end": "Rua Caramuru, 142, Centro", "cidade": "Corumbataí do Sul", "uf": "PR"},
+ {"nome": "Pesqueiro do Mário", "end": "Av. São Vicente de Paula, 369, KM 15 Distrito Luar Gleba Pontal Bulha", "cidade": "Fênix", "uf": "PR"},
+ {"nome": "Restaurante Toa Toa", "end": "Av. Dr. Joaquim Vicente de Castro, 526, Centro", "cidade": "Fênix", "uf": "PR"},
+ {"nome": "Dani Wilian Lanches e Porções", "end": "Rua Luiz Candido Dias, 272", "cidade": "Godoy Moreira", "uf": "PR"},
+ {"nome": "Mercado Mangolin", "end": "Av. São Paulo, 421, Centro", "cidade": "Godoy Moreira", "uf": "PR"},
+ {"nome": "Posto Godoy Moreira", "end": "Av. São Paulo, 767, Centro", "cidade": "Godoy Moreira", "uf": "PR"},
+ {"nome": "Restaurante Pierobon", "end": "Av. Natanael Verri, 548R, Centro", "cidade": "Godoy Moreira", "uf": "PR"},
+ {"nome": "Supermercado Panca", "end": "Rua Manoel Marcelino, 362, Centro", "cidade": "Godoy Moreira", "uf": "PR"},
+ {"nome": "Supermercado São Paulo", "end": "Rua Manoel Marcelino, 277, Centro", "cidade": "Godoy Moreira", "uf": "PR"},
+ {"nome": "Bar do Beto", "end": "Av. São João, 491, Centro", "cidade": "Itambé", "uf": "PR"},
+ {"nome": "Mercado do Menino", "end": "Rua Faustino do Santo Souza, 07, Centro", "cidade": "Itambé", "uf": "PR"},
+ {"nome": "Auto Posto União", "end": "Rua João Maria Stresser, 384, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Babalu Dog Burg", "end": "Rua Placídio Miranda, 610, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Baixinho", "end": "Av. Brasil, 1340, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Bar e Mercearia Chambo", "end": "Rua Ceará, 4100, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Bar Rala Rhaya", "end": "Av. Brasil, 1518, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Beach Tenis Ivaiporã", "end": "Av. Espanha, 21, Jardim Europa", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Bella Pani", "end": "Av. Souza Naves, 885, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Black Of Stile", "end": "Rua Durvalina Dias de Jesus, 1345, Vila Nova Pora", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Cantina Fatec Faculdade Ivaiporã", "end": "Av. Brasil, 45, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Casa Confiança", "end": "Rua Ivaiporã, 197, Jacutinga", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Churrascaria Soledade", "end": "Av. Aparício Cardoso Bittencourt, 260, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Daju", "end": "Rod. Nicolau Koltun 15 Quadra02 Lote 15 Cohapar", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Dolce Dolce Paes e Conveniência", "end": "Av. Brasil, 1020, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Espetinhos Bilk", "end": "Av. Brasil ao lado do Mercado Paulista, 1015, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "K10 Beer", "end": "Av. Souza Naves, 595praca Franca, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Mercado Confiança", "end": "Av. Souza Naves, 1285, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Mercado Matos", "end": "Av. Ladislau Gil Fernandez, 1010, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Mercado Novo Ponto", "end": "Rua Cornelio Procopio, 180, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Mercado Paulista", "end": "Av. Brasil, 1055, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Mercado Popular", "end": "Rua Foz do Iguaçu, 15, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Mercado Silva", "end": "Av. Paraíba, 515, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Mercado Veneza", "end": "Av. Maranhão, 2595, Jardim Santa Barbara", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Mercado Verenka", "end": "Rua Ceará, 4890, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Mercearia Rocha", "end": "Rua Bandeirantes, 695, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Murilo Lanches", "end": "Rua Luis Pasteur, 740, Vila João XXIII", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Narguile s Pub", "end": "Av. Brasil, 685, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "O Pai Pinguco", "end": "Av. Brasil, 1700, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Padaria Estrela", "end": "Av. Brasil, 1210, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Panificadora Itália", "end": "Av. Presidente Tancredo Neves, 2241, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Paulista 2", "end": "Av. Castelo Branco, 810, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Quiosque Sirio", "end": "Av. Castelo Branco, 690, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Rede Paris CW", "end": "Av. Souza Naves, 650, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Restaurante Panela de Ferro", "end": "Av. Brasil, 440, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Vasconcelos Beer", "end": "Av. Aparício Cardoso Bittencourt, 305, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Zilio Churrascaria", "end": "Praça Ives Gueguen, 535, Centro", "cidade": "Ivaiporã", "uf": "PR"},
+ {"nome": "Açougue São Paulo", "end": "Rua Marechal Candido Rondon, 1130, Centro", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Atacadista Bem Bom Paraíso", "end": "Av. Paraná, 284, Vila Paião", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Auto Posto Brasil", "end": "Av. Dr. Tancredo Almeida Neves, 628 a, Centro", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Bazar da Nita", "end": "Rua Jandaia, 15, Distrito São José", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Boss Pizzaria", "end": "Rua Clementino Schiavon Puppi, 1200, Centro", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Brazero Burguer BBQ", "end": "Av. Tancredo Neves, 585, Centro", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Buteco", "end": "Rua Senador Souza Naves, 418, Centro", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Casa de Carne do Areli", "end": "Av. Anunciato Sonni, 1813, Centro", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Don Juan", "end": "Av. Anunciato Sonni, 1608, Centro", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Frios Jandaia", "end": "Rod. BR 369, s/n, Distrito São José", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Gil Bebidas e Conveniências", "end": "Av. Anunciato Sonni, 2000, Centro", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Labirita", "end": "Rua João Batista Mortean, 718, Centro", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Lanchonete e Confeitaria São João", "end": "Av. Anunciato Sonni, 1463, Centro", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Lanchonete Modelo", "end": "Av. Getúlio Vargas, 616, Centro", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Mercadinho Boldrin", "end": "Rua Jandaia, 67, Distrito São José", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Mercadinho Morumbi", "end": "Rua Jose de Souza Cavalcante, 279, Conj. Nova Jandaia", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Mercado Izaias", "end": "Rua Ciro Albino de Souza, 362, G Arnaldo Buzato", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Mercado Leão", "end": "Rua dos Crisantemos, 30, Jardim das Flores", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Mercado Luar", "end": "Rua Rafael Morales Sanches, 36, Centro", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Mercado Polys", "end": "Rua Pavao, 20, Jardim das Araucárias", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Mercado Santa Helena", "end": "Rua Pedro Miksza, 300, Jardim Vista Alegre", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Mercado Santa Rita", "end": "Rua Santa Catarina, 140, Jardim Santa Helena", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Mercado São Geraldo", "end": "Rua Clementino S. Puppi, 471, Centro", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Mercearia Oliveira", "end": "Rua Carlos Corcete, 200, Centro", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Padaria Café com Leite", "end": "Av. Anunciato Sonni, 2500, Centro", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Pica Pau", "end": "Rua Padre Carlos Ferreira, 52, Centro", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Restaurante Monte das Oliveiras", "end": "Av. Getúlio Vargas, 583, Centro", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Skina s Bar", "end": "Rua João Francisco de Souza, 237, Jardim Vista Alegre", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Supermercado Bom Dia Paraíso", "end": "Rua Jose Maria de Paula Rodrigues, 280, Centro", "cidade": "Jandaia do Sul", "uf": "PR"},
+ {"nome": "Mercado Canção", "end": "Av. Paraná, 832, Centro", "cidade": "Jardim Alegre", "uf": "PR"},
+ {"nome": "Supermercado Ribeiro", "end": "Rua Paraná, 405, Centro", "cidade": "Jardim Alegre", "uf": "PR"},
+ {"nome": "Supermercado Trova", "end": "Av. Paraná, 660, Centro", "cidade": "Jardim Alegre", "uf": "PR"},
+ {"nome": "Trova Valdenir", "end": "Av. Paraná, 660, Centro", "cidade": "Jardim Alegre", "uf": "PR"},
+ {"nome": "Bar do Mane", "end": "Rua Antonio Vicentim, 407, Jardim Pérola", "cidade": "Kaloré", "uf": "PR"},
+ {"nome": "Ferrugem Kalore", "end": "Estrada do Uruzinho, Zona Rural", "cidade": "Kaloré", "uf": "PR"},
+ {"nome": "Ki Pão", "end": "Rua Orlando Carlos Pereira, 298, Centro", "cidade": "Kaloré", "uf": "PR"},
+ {"nome": "La Birita", "end": "Rua Vereador Reinaldo Barbieri, 137, Centro", "cidade": "Kaloré", "uf": "PR"},
+ {"nome": "Mercado Avenida", "end": "Av. Paraná, 597, Centro", "cidade": "Kaloré", "uf": "PR"},
+ {"nome": "Mercado Camilo", "end": "Rua Orlando Carlos Pereira, 340, Centro", "cidade": "Kaloré", "uf": "PR"},
+ {"nome": "Mercado Canelo", "end": "Rua Elias Labegalini, 234, Centro", "cidade": "Kaloré", "uf": "PR"},
+ {"nome": "Mercado e Padaria Diniz", "end": "Rua Benedita Impossetto, 1007, Centro", "cidade": "Kaloré", "uf": "PR"},
+ {"nome": "Mercado Labegalini", "end": "Rua Angelo Impossetto, 459, Centro", "cidade": "Kaloré", "uf": "PR"},
+ {"nome": "Panificadora Pão e Sabor", "end": "Av. Paraná, 332, Centro", "cidade": "Kaloré", "uf": "PR"},
+ {"nome": "Quitanda Agnaldo", "end": "Rua Orlando Carlos Pereira (ao lado Pimenta Rosa), Centro", "cidade": "Kaloré", "uf": "PR"},
+ {"nome": "Rede Fama Supermercados", "end": "Rua Orlando Carlos Pereira, 415, Centro", "cidade": "Kaloré", "uf": "PR"},
+ {"nome": "Rede Fama Supermercados", "end": "Rua Vereador Jose Rodrigues da Silva, 416, Distrito de Jussiara", "cidade": "Kaloré", "uf": "PR"},
+ {"nome": "Sabor e Prosa", "end": "Rua Orlando Carlos Pereira, 335, Centro", "cidade": "Kaloré", "uf": "PR"},
+ {"nome": "Lages Bar", "end": "Rua Santa Catarina, 450, Centro", "cidade": "Lidianópolis", "uf": "PR"},
+ {"nome": "Mercado Central", "end": "Rua Santa Catarina, 539, Centro", "cidade": "Lidianópolis", "uf": "PR"},
+ {"nome": "Restaurante e Lanchonete Porto Uba", "end": "Av. Curitiba Esquina com PR 466, 450, Porto Ubá", "cidade": "Lidianópolis", "uf": "PR"},
+ {"nome": "Armazém 130", "end": "Praça Comendador Geremia Lunardelli, 130, Centro", "cidade": "Lunardelli", "uf": "PR"},
+ {"nome": "Barracão Serv Fest", "end": "Praça Comendador Geremia, Centro", "cidade": "Lunardelli", "uf": "PR"},
+ {"nome": "Lanchonete Carrara", "end": "Av. Duque de Caxias, 293, Centro", "cidade": "Lunardelli", "uf": "PR"},
+ {"nome": "Mercado Confiança 2", "end": "Av. 7 de Setembro, 670, Centro", "cidade": "Lunardelli", "uf": "PR"},
+ {"nome": "Mercearia do Vale", "end": "Rua Piauí, 255, Centro", "cidade": "Lunardelli", "uf": "PR"},
+ {"nome": "Mercearia Lucemar", "end": "Rua Hilário Bassani, 1, Nossa Senhora do Rocio", "cidade": "Lunardelli", "uf": "PR"},
+ {"nome": "Restaurante Bife na Chapa", "end": "Rua Espírito Santo, 390, Centro", "cidade": "Lunardelli", "uf": "PR"},
+ {"nome": "Conveniência Posto Novo Centro", "end": "Av. Amazonas, 2189, Centro", "cidade": "Mandaguari", "uf": "PR"},
+ {"nome": "Bima Lanches", "end": "Rua Tadashi Utiumi, 105, Jardim Progresso I", "cidade": "Mandaguari", "uf": "PR"},
+ {"nome": "Camilo", "end": "Av. Amazonas, 2024, Centro", "cidade": "Mandaguari", "uf": "PR"},
+ {"nome": "Casa de Carnes Olivatti", "end": "Rua Custódio da Rocha, 459, Jardim Nova America", "cidade": "Mandaguari", "uf": "PR"},
+ {"nome": "Drogaria KM", "end": "Av. Amazonas, 1139, Centro", "cidade": "Mandaguari", "uf": "PR"},
+ {"nome": "Empório Gourmet", "end": "Av. Amazonas, 390/A, Centro", "cidade": "Mandaguari", "uf": "PR"},
+ {"nome": "Hup-opa", "end": "Rua Professor Nilo Cairo, 120, Jardim Esplanada", "cidade": "Mandaguari", "uf": "PR"},
+ {"nome": "Limao Rosa", "end": "Av. Amazonas, 2389, Centro", "cidade": "Mandaguari", "uf": "PR"},
+ {"nome": "Mercado Brito", "end": "Rua Gomercindo Bortolanza, 1695, Jardim da Mata", "cidade": "Mandaguari", "uf": "PR"},
+ {"nome": "Mercado Campeão", "end": "Rua Henrique Bertoli, 07, Cj Ernesto Trolezzi", "cidade": "Mandaguari", "uf": "PR"},
+ {"nome": "Mercado Compre Tudo", "end": "Rua Ver. Gernot Otto Jorge Pfuetzenreute, 45, Jardim Social", "cidade": "Mandaguari", "uf": "PR"},
+ {"nome": "Mercado e Padaria Lima", "end": "Rua Amélia Leopodina Figueira, 24, Conj. Res. Ernesto Trolezzi", "cidade": "Mandaguari", "uf": "PR"},
+ {"nome": "Mercado Ipacaraí", "end": "Rua Noish Matsumoto, 50, Centro", "cidade": "Mandaguari", "uf": "PR"},
+ {"nome": "Mercado Maia", "end": "Rua Carlos Ubialli, 373, Jardim America", "cidade": "Mandaguari", "uf": "PR"},
+ {"nome": "Mercado Marcato", "end": "Rua Jose Tacola, 2291, Jardim Cristina", "cidade": "Mandaguari", "uf": "PR"},
+ {"nome": "Mercado Parana", "end": "Rua Rene Taccola, 480, Centro", "cidade": "Mandaguari", "uf": "PR"},
+ {"nome": "Nossa Locadora", "end": "Av. Amazonas, 1322, Centro", "cidade": "Mandaguari", "uf": "PR"},
+ {"nome": "Padaria Santa Rita", "end": "Rua Ludovico Falkowski, 30, Jardim Progresso I", "cidade": "Mandaguari", "uf": "PR"},
+ {"nome": "Panificadora 3 Irmãos", "end": "Rua João Segolla, 230, G Mandaguari II", "cidade": "Mandaguari", "uf": "PR"},
+ {"nome": "Sorveteria da Fernanda", "end": "Rua Maria Benedita Nistorene Giacomini, 220, Cj Hab Gov Paulo Pimentel", "cidade": "Mandaguari", "uf": "PR"},
+ {"nome": "Verona Supermercados", "end": "Av. Amazonas, 1556, Centro", "cidade": "Mandaguari", "uf": "PR"},
+ {"nome": "Yuppi Doces e Festas", "end": "Rua Jose Taccola, 2660, Jardim Cristina 2", "cidade": "Mandaguari", "uf": "PR"},
+ {"nome": "Comercial Taiti", "end": "Av. Tiradentes, 615, Centro", "cidade": "Marumbi", "uf": "PR"},
+ {"nome": "Comercial Uniao", "end": "Rua Vereador João Fuzetti, 176, Centro", "cidade": "Marumbi", "uf": "PR"},
+ {"nome": "Mercadinho Brasil", "end": "Rua São Paulo, 137, Centro", "cidade": "Marumbi", "uf": "PR"},
+ {"nome": "Mercado e Açougue do Batata", "end": "Rua Santos Dumont, 1100, Conjunto Habitacional Adhemar Rejani", "cidade": "Marumbi", "uf": "PR"},
+ {"nome": "Mercado Olivatti", "end": "Rua Quintilho Pini, 828, Centro", "cidade": "Marumbi", "uf": "PR"},
+ {"nome": "Mercado Popular", "end": "Rua Vereador João Fuzetti, 1348, Mutirão 2", "cidade": "Marumbi", "uf": "PR"},
+ {"nome": "Panificadora e Confeitaria Leal", "end": "Av. Tiradentes, 1225, Centro", "cidade": "Marumbi", "uf": "PR"},
+ {"nome": "Pizzaria Moura", "end": "Av. Presidente Vargas, 494, Centro", "cidade": "Marumbi", "uf": "PR"},
+ {"nome": "Pizzaria Santa Massa", "end": "Av. Tiradentes, 789, Centro", "cidade": "Marumbi", "uf": "PR"},
+ {"nome": "Posto Marumbi", "end": "Rua Marechal Floriano Peixoto, 802, Centro", "cidade": "Marumbi", "uf": "PR"},
+ {"nome": "Rede Fama Supermercados", "end": "Rua Avenida Presidente Vargas, 189, Centro", "cidade": "Marumbi", "uf": "PR"},
+ {"nome": "Cantinho do Sorvete", "end": "Av. 28 de Setembro, 1018, Centro", "cidade": "Novo Itacolomi", "uf": "PR"},
+ {"nome": "Marlon Lanches", "end": "Rua Milton Manoel da Silva, 281, Conjunto Antonio Manssani", "cidade": "Novo Itacolomi", "uf": "PR"},
+ {"nome": "Mercado Bengozi", "end": "Rua Silvio Rossato, 602, Centro", "cidade": "Novo Itacolomi", "uf": "PR"},
+ {"nome": "Mercado Economia", "end": "Rua Aleixo Francisco dos Santos, 465, Centro", "cidade": "Novo Itacolomi", "uf": "PR"},
+ {"nome": "Mercado Novo Itacolomi", "end": "Rua Aleixo dos Santos, 607, Centro", "cidade": "Novo Itacolomi", "uf": "PR"},
+ {"nome": "Number One", "end": "Av. Presidente Getúlio Vargas, 751", "cidade": "Pitanga", "uf": "PR"},
+ {"nome": "Supermercado Alvorada", "end": "Rua Vega, Esq Avenida Cruzeiro do Sul, 567, Centro", "cidade": "Quinta do Sol", "uf": "PR"},
+ {"nome": "Supermercado São Marcos", "end": "Av. Centauro, 334, Centro", "cidade": "Quinta do Sol", "uf": "PR"},
+ {"nome": "Loja de Conveniência São Gabriel", "end": "Rua Manoel Alves Costa, 225, Centro", "cidade": "São João do Ivaí", "uf": "PR"},
+ {"nome": "Mercado Martins", "end": "Av. São João, 751, Centro", "cidade": "São João do Ivaí", "uf": "PR"},
+ {"nome": "Mercado Pinheiro", "end": "Rua Apucarana, s/n, Ubaúna", "cidade": "São João do Ivaí", "uf": "PR"},
+ {"nome": "Mercearia Progresso", "end": "Rua Presidente Kenedy, 524, Jardim Santa Terezinha", "cidade": "São João do Ivaí", "uf": "PR"},
+ {"nome": "Mercearia Reis", "end": "Rua Apucarana, s/n, Ubaúna", "cidade": "São João do Ivaí", "uf": "PR"},
+ {"nome": "Mercearia Vitoria", "end": "Rua Geraldo do Carmo, 315, Santa Luzia da Alvorada", "cidade": "São João do Ivaí", "uf": "PR"},
+ {"nome": "Padaria do Japones", "end": "Av. Curitiba, 97, Centro", "cidade": "São João do Ivaí", "uf": "PR"},
+ {"nome": "Reign Beer", "end": "Rua Gen. Carneiro - Praça Duque de Caxias, Centro", "cidade": "São João do Ivaí", "uf": "PR"},
+ {"nome": "Supermercado Bom Dia Paraíso", "end": "Rua João Francisco Quirino, 996, Santa Rita", "cidade": "São João do Ivaí", "uf": "PR"},
+ {"nome": "Supermercado São Jose", "end": "Rua Corifeu de Azevedo Marques, 315, Centro", "cidade": "São João do Ivaí", "uf": "PR"},
+ {"nome": "Supermercado São Luiz", "end": "Av. Itaipu, 73, Jardim Ivaí", "cidade": "São João do Ivaí", "uf": "PR"},
+ {"nome": "Agro Beer", "end": "Av. Guaíra, 416, Centro", "cidade": "São Pedro do Ivaí", "uf": "PR"},
+ {"nome": "Gobetti Beer", "end": "Av. Dr. Cícero de Moraes, 340, Centro", "cidade": "São Pedro do Ivaí", "uf": "PR"},
+ {"nome": "JT Bebidas", "end": "Rua Leocádio Ascêncio, 27, Bairro Boa Vista I", "cidade": "São Pedro do Ivaí", "uf": "PR"},
+ {"nome": "Lux Conveniência", "end": "Rua Ver. Jair Sebastião Ribeiro, 145, Residencial Maria Augusta Thomaz", "cidade": "São Pedro do Ivaí", "uf": "PR"},
+ {"nome": "Sorveteria Gelobom", "end": "João Mendes Guimaraes, 229, Conjunto Cambará", "cidade": "São Pedro do Ivaí", "uf": "PR"}
 ];
 
 const $ = s=>document.querySelector(s);
@@ -593,7 +808,7 @@ ${arcosTri}
 <section class="bloco" style="background:var(--creme)">
   <div class="wrap duas">
     <div class="rev"><p class="eyebrow" style="color:var(--blu)">Onde encontrar</p><h2 class="titulo t">Tem Treviso <em>perto de você</em></h2>
-    <p class="sub">Mercados, padarias, lanchonetes e sorveterias de várias cidades do Paraná vendem Treviso. Encontre o mais próximo.</p>
+    <p class="sub">São cerca de 2.500 mercados, padarias, lanchonetes e sorveterias em mais de 150 cidades do Paraná. Encontre o mais perto de você.</p>
     <p style="margin-top:28px"><a class="btn btn-blu" href="#onde">Buscar pela minha cidade ${seta}</a></p></div>
     <div class="chips rev">${[...new Set(PONTOS.map(p=>p.cidade))].sort().map(c=>`<a class="chip" style="text-decoration:none;display:inline-flex;align-items:center" href="#onde">${esc(c)}</a>`).join('')}</div>
   </div>
@@ -739,24 +954,35 @@ function onde(){
   <div class="cab rev"><div><p class="eyebrow" style="color:var(--blu)">Onde encontrar</p><h1 class="titulo t">Tem Treviso <em>perto de você</em></h1>
   <p class="sub">São cerca de 2.500 pontos de venda em mais de 150 cidades do Paraná. Escolha sua cidade ou busque pelo nome do estabelecimento.</p></div></div>
   <div class="filtros">
-    <div class="chips" role="group" aria-label="Cidade"><button class="chip" data-cidade="todas">Todas as cidades</button>${cidades.map(c=>`<button class="chip" data-cidade="${esc(c)}">${esc(c)}</button>`).join('')}</div>
-    <div class="busca"><label for="qp" class="sr">Buscar ponto de venda</label><input id="qp" type="search" placeholder="Buscar cidade ou estabelecimento"></div>
+    <div class="onde-filtros">
+      <div class="campo-cid"><label for="sel-cid" class="sr">Cidade</label><select id="sel-cid"><option value="todas">Escolha sua cidade</option>${cidades.map(c=>`<option value="${esc(c)}">${esc(c.replace(' – PR',''))}</option>`).join('')}</select></div>
+      <div class="busca"><label for="qp" class="sr">Buscar ponto de venda</label><input id="qp" type="search" placeholder="Ou busque pelo nome do estabelecimento"></div>
+    </div>
     <span class="contagem" id="cont-pontos" aria-live="polite"></span>
   </div>
   <div class="grade-pontos" id="grade-pontos"></div>
-  <p class="pend" style="margin-top:28px">Prévia: pontos encontrados em pesquisa pública, só para demonstração. A lista oficial, com nome e endereço de cada ponto, será enviada pela Treviso.</p>
+  <p class="pend" style="margin-top:28px">Lista piloto enviada pela Treviso em 23/11, com ${PONTOS.length} pontos em ${cidades.length} cidades. A lista completa entra antes da publicação.</p>
   <div class="duas" style="margin-top:60px"><div><h2 class="t" style="font-size:44px;color:var(--blu-esc);margin:0">Não achou um ponto na sua cidade?</h2><p class="sub">Indique um estabelecimento ou leve a Treviso para o seu negócio. Também dá para comprar direto na fábrica, com retirada em Marumbi.</p></div><p><a class="btn btn-rosso" href="#revenda">Quero revender Treviso</a></p></div>
   </div></section>`}
 
 function filtrarPontos(){
   const q=sem(estado.qp||'');
-  const lista=PONTOS.filter(p=>(estado.cidade==='todas'||p.cidade+' – '+p.uf===estado.cidade)&&(!q||sem(p.nome+' '+p.cidade+' '+p.tipo).includes(q)));
+  const sel=$('#sel-cid'); if(sel) sel.value=estado.cidade;
+  const pin='<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>';
+  if(estado.cidade==='todas'&&!q){
+    const cont={};PONTOS.forEach(p=>{const k=p.cidade+' – '+p.uf;cont[k]=(cont[k]||0)+1});
+    $('#grade-pontos').innerHTML=Object.keys(cont).sort((a,b)=>a.localeCompare(b,'pt')).map(c=>`<button class="cidade-card" data-cidade="${esc(c)}"><b class="t">${esc(c.replace(' – PR',''))}</b><span>${cont[c]} ${cont[c]===1?'ponto':'pontos'}</span></button>`).join('');
+    $('#cont-pontos').textContent=Object.keys(cont).length+' cidades na lista';
+    document.querySelectorAll('.cidade-card').forEach(b=>b.onclick=()=>{estado.cidade=b.dataset.cidade;filtrarPontos();$('#cont-pontos').scrollIntoView({block:'start',behavior:'smooth'})});
+    return;
+  }
+  const lista=PONTOS.filter(p=>(estado.cidade==='todas'||p.cidade+' – '+p.uf===estado.cidade)&&(!q||sem(p.nome+' '+p.end+' '+p.cidade).includes(q)));
   $('#grade-pontos').innerHTML=lista.length?lista.map(p=>{const b=encodeURIComponent(p.nome+' '+(p.end||'')+' '+p.cidade+' '+p.uf);return `<article class="ponto">
-    <span class="tipo">${esc(p.tipo)}</span><h3 class="t">${esc(p.nome)}</h3>
-    <p>${p.end?esc(p.end)+'<br>':''}${esc(p.cidade)} – ${esc(p.uf)}</p><span class="ex">Exemplo · a confirmar</span>
-    <a href="https://www.google.com/maps/search/?api=1&query=${b}" target="_blank" rel="noopener">Ver no mapa <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a></article>`}).join(''):`<div class="vazio" style="grid-column:1/-1">Nenhum ponto encontrado. <a href="#revenda">Quer levar a Treviso para sua cidade?</a></div>`;
-  $('#cont-pontos').textContent=lista.length+(lista.length===1?' ponto':' pontos');
-  document.querySelectorAll('[data-cidade]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.cidade===estado.cidade));
+    <span class="tipo">${esc(p.cidade)}</span><h3 class="t">${esc(p.nome)}</h3>
+    <p>${p.end?esc(p.end):''}</p>
+    <a href="https://www.google.com/maps/search/?api=1&query=${b}" target="_blank" rel="noopener">${pin} Ver no mapa</a></article>`}).join(''):`<p class="sub">Nenhum ponto encontrado. Tente outro nome ou escolha a cidade na lista.</p>`;
+  $('#cont-pontos').innerHTML=lista.length+(lista.length===1?' ponto':' pontos')+(estado.cidade!=='todas'?` · <button class="link-voltar" id="ver-cidades">ver todas as cidades</button>`:'');
+  const v=$('#ver-cidades'); if(v) v.onclick=()=>{estado.cidade='todas';estado.qp='';const i=$('#qp');if(i)i.value='';filtrarPontos()};
 }
 
 function revenda(){return `<section class="bloco azul"><div class="wrap duas" style="align-items:start">
@@ -863,7 +1089,7 @@ function ligar(){
   document.querySelectorAll('[data-linha]').forEach(b=>b.onclick=()=>{estado.linha=b.dataset.linha;filtrar()});
   document.querySelectorAll('[data-formato]').forEach(b=>b.onclick=()=>{estado.formato=b.dataset.formato;filtrar()});
   const q=$('#q'); if(q) q.oninput=()=>{estado.busca=q.value;filtrar()};
-  document.querySelectorAll('[data-cidade]').forEach(b=>b.onclick=()=>{estado.cidade=b.dataset.cidade;filtrarPontos()});
+  const sc=$('#sel-cid'); if(sc) sc.onchange=()=>{estado.cidade=sc.value;filtrarPontos()};
   const qp=$('#qp'); if(qp) qp.oninput=()=>{estado.qp=qp.value;filtrarPontos()};
   const f=$('#form-revenda'); if(f) f.onsubmit=e=>{e.preventDefault();
     const falta=[...f.querySelectorAll('[required]')].find(i=>i.type==='checkbox'?!i.checked:!i.value.trim());
