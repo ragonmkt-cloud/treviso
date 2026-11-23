@@ -147,6 +147,11 @@ section.bloco{padding:100px 0}
 
 /* três famílias */
 .familias{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.breve{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.breve .familia{flex-direction:row;align-items:center;min-height:0}
+.breve .familia>div{flex:1;display:flex;flex-direction:column;gap:12px}
+.breve .familia img{height:300px;width:auto;max-width:38%;object-fit:contain;filter:drop-shadow(0 18px 24px rgba(0,0,0,.18));position:relative;z-index:1}
+@media (max-width:760px){.breve{grid-template-columns:1fr}.breve .familia img{height:220px}}
 .familia{border-radius:var(--raio);padding:32px;min-height:340px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
 .familia .cor{font-variation-settings:'wdth' 400,'wght' 700;letter-spacing:.16em;text-transform:uppercase;font-size:13px}
 .familia h3{margin:0;font-size:46px}
@@ -361,11 +366,11 @@ const LINHAS = {
   dilatte:    {nome:'Dilatte',     fam:'bianco', fmt:'Picolés de leite · 60g',               bg:'#FDE6EC', ink:'#8A0F38', capa:'img/morango-dilatte.webp',   txt:'Picolés de leite cremosos, com os sabores clássicos que todo mundo procura no freezer.'},
   speciale:   {nome:'Speciale',    fam:'rosso',  fmt:'Picolés com cobertura e potes de 2 L', bg:'#E3F2F8', ink:'#4A2A1A', capa:'img/skimo.webp',             txt:'Cobertura, recheio e camadas. A linha para quem quer um sorvete mais caprichado, no palito ou no pote.'},
   celebrare:  {nome:'Celebrare',   fam:'rosso',  fmt:'Picolés e potes de 1,5 L',             bg:'#F6EBD5', ink:'#5A3415', capa:'img/trufado.webp',           txt:'Trufas, recheios e combinações especiais. Feita para as ocasiões que pedem algo a mais.'},
-  tradizionale:{nome:'Tradizionale',fam:'bianco',fmt:'Potes de 1 L e 2 L',                   bg:'#E8F1E4', ink:'#1F5130', capa:'img/cover-tradizionale.webp',txt:'Os sabores de sempre em potes para a família: do napolitano ao milho verde.'},
+  tradizionale:{nome:'Tradizionale',fam:'bianco',fmt:'Potes de 1 L e 2 L',                   bg:'#E8F1E4', ink:'#1F5130', capa:'img/cover-tradizionale.webp',txt:'Os sabores de sempre em potes para a família: do napolitano ao milho verde, em 1 L e 2 L.'},
   combinatto: {nome:'Combinatto',  fam:'rosso',  fmt:'Potes de 1,5 L com dois sabores',      bg:'#F8E7F2', ink:'#6B2C6E', capa:'img/unicornio.webp',         txt:'Dois sabores lado a lado no mesmo pote. Para quem não consegue escolher só um.'},
   bambini:    {nome:'Bambini',     fam:'bianco', fmt:'Linha infantil',                       bg:'#E3F2FB', ink:'#B0144F', capa:'img/amore-mio.webp',         txt:'Sabores e formatos pensados para os pequenos, como o picolé em forma de coração.'},
-  outros:     {nome:'Outros formatos', fam:'bianco', fmt:'Cones, copos e potinhos',            bg:'#FBEBDD', ink:'#6B3A1E', capa:'img/cover-conitos.webp',     txt:'Conitos, Sundae, Pertutti, Moreninha e Colegial: formatos práticos para levar na mão. [Nome do grupo e formatos — confirmar com a Treviso]'},
-  food:       {nome:'Potes 7 e 10 L', fam:'bianco', fmt:'Para sorveterias e food service',     bg:'#E6EEF9', ink:'#0B2E73', capa:null,                         txt:'Potes grandes para sorveterias, lanchonetes e restaurantes que servem na casquinha ou na taça. [Sabores disponíveis — confirmar]'}
+  outros:     {nome:'Outros formatos', fam:'bianco', fmt:'Cones, copos e potinhos',            bg:'#FBEBDD', ink:'#6B3A1E', capa:'img/cover-conitos.webp',     txt:'Conitos, Sundae, Pertutti e Moreninha: casquinha, copo e potinho, formatos práticos para levar na mão. [Nome do grupo — confirmar com a Treviso]'},
+  food:       {nome:'Potes 7 e 10 L', fam:'bianco', fmt:'Para sorveterias e food service',     bg:'#E6EEF9', ink:'#0B2E73', capa:'img/pote-10l.webp',            txt:'Potes grandes para sorveterias, lanchonetes e restaurantes que servem na casquinha ou na taça. [Sabores disponíveis — confirmar]'}
 };
 const SLIDES = [
   {id:'difrutta', linha:'Difrutta', sub:'picolés de fruta', halo:'rgba(157,178,36,.45)', tit:'Fruta que<br><em>refresca</em>.', lead:'Abacaxi, uva, limão, groselha e minissaia: cinco picolés de fruta para o calor de todo dia.', imgs:['uva','groselha','limao']},
@@ -374,12 +379,12 @@ const SLIDES = [
   {id:'celebrare', linha:'Celebrare', sub:'para ocasiões especiais', halo:'rgba(234,73,73,.4)', tit:'Feito para<br><em>celebrar</em>.', lead:'Trufas, recheios e potes de 1,5 litro para os momentos que pedem algo a mais.', imgs:['pe-de-moleque','chocobom','trufado'], pote:true}
 ];
 const EM_BREVE = [
- {nome:'Linha In Natura', fam:'f-verde', txt:'Picolé de laranja feito com suco da fruta.', pend:'[Nome final, composição e data de lançamento — confirmar]'},
- {nome:'Treviso + Café Jandaia', fam:'f-rosso', txt:'Uma parceria com o Café Jandaia: picolé de leite com café.', pend:'[Nome final e data de lançamento — confirmar]'}
+ {nome:'Natura Laranja', fam:'f-verde', img:'natura-laranja', txt:'Picolé de laranja com 70% de suco in natura. Fruta de verdade, do jeito que o calor pede.', det:'Picolé · 60 g'},
+ {nome:'Café Jandaia Pingado', fam:'f-rosso', img:'cafe-jandaia-pingado', txt:'Treviso e Café Jandaia juntos num picolé de leite com café, o pingado de todo dia em versão gelada.', det:'Picolé · 60 g'}
 ];
 function emBreve(){return `<section class="bloco" style="padding-top:0"><div class="wrap">
   <div class="cab rev"><div><p class="eyebrow" style="color:var(--verde-esc)">Vem aí</p><h2 class="titulo t">Em <em>breve</em> no freezer</h2></div></div>
-  <div class="familias">${EM_BREVE.map(e=>`<article class="familia ${e.fam} rev"><span class="cor">Em breve</span><h3 class="t">${e.nome}</h3><p>${e.txt}</p><p style="opacity:.8;font-size:14px">${e.pend}</p></article>`).join('')}</div>
+  <div class="breve">${EM_BREVE.map(e=>`<article class="familia ${e.fam} rev"><div><span class="cor">Lançamento em janeiro</span><h3 class="t">${e.nome}</h3><p>${e.txt}</p><p style="opacity:.75;font-size:14px;margin-top:6px">${e.det}</p></div><img src="img/${e.img}.webp" alt="Embalagem ${e.nome}" loading="lazy"></article>`).join('')}</div>
   </div></section>`}
 const FAMILIAS = {
   verde:  {cls:'f-verde',  cor:'Verde',  titulo:'Fruta e frescor', txt:'Picolés de fruta para os dias quentes, leves e cheios de cor.'},
@@ -416,8 +421,8 @@ const P = [
  ['mousse-de-limao-speciale','Mousse de Limão','speciale','Pote','',null,null],
  ['olho-de-sogra-speciale','Olho de Sogra','speciale','Pote','',null,null],
  ['ouro-negro-speciale','Ouro Negro','speciale','Pote','',null,null],
- ['bello-ferrero-speciale','Bello Ferrero','speciale','Pote','2 L',null,null],
- ['bello-ferrero-picole','Bello Ferrero','speciale','Picolé','',null,null],
+ ['bello-ferrero-speciale','Bello Ferrero','speciale','Pote','1,5 L · 750 g',null,'bello-ferrero-pote'],
+ ['bello-ferrero-celebrare','Bello Ferrero','celebrare','Picolé','73 g','Picolé sabor chocolate com avelã, recheio de creme de avelã e cobertura de chocolate com castanhas e biscoito','bello-ferrero-picole'],
  ['pe-de-moleque-celebrare','Pé de Moleque','celebrare','Picolé','75g','Picolé sabor artificial de bombom com recheio de creme de amendoim e cobertura de chocolate com amendoim','pe-de-moleque'],
  ['chocobom-celebrare','Chocobom','celebrare','Picolé','65g','Picolé sabor artificial de chocolate branco com recheio cremoso de chocolate e cobertura de chocolate com flocos de arroz e castanhas','chocobom'],
  ['trufado-celebrare','Trufado','celebrare','Pote','1,5 L · 750g','Sorvete sabor chocolate com recheio de trufa','trufado'],
@@ -428,17 +433,18 @@ const P = [
  ['cafe-moca-celebrare','Café Moca','celebrare','Pote','',null,null],
  ['cookies-celebrare','Cookies','celebrare','Pote','',null,null],
  ['choco-duo-celebrare','Choco Duo','celebrare','Pote','',null,null],
- ['abacaxi-tradizionale','Abacaxi','tradizionale','Pote','1 L e 2 L',null,null],
- ['chocolate-tradizionale','Chocolate','tradizionale','Pote','1 L e 2 L',null,null],
- ['leite-condensado-tradizionale','Leite Condensado','tradizionale','Pote','1 L e 2 L',null,null],
- ['morango-tradizionale','Morango','tradizionale','Pote','1 L e 2 L',null,null],
- ['napolitano-tradizionale','Napolitano','tradizionale','Pote','1 L e 2 L',null,null],
- ['passas-ao-rum-tradizionale','Passas ao Rum','tradizionale','Pote','1 L',null,null],
- ['uva-ao-creme-tradizionale','Uva ao Creme','tradizionale','Pote','1 L',null,null],
- ['baunilha-tradizionale','Baunilha','tradizionale','Pote','2 L',null,null],
- ['creme-tradizionale','Creme','tradizionale','Pote','2 L',null,null],
- ['coco-branco-tradizionale','Coco Branco','tradizionale','Pote','2 L',null,null],
- ['milho-verde-tradizionale','Milho Verde','tradizionale','Pote','2 L',null,null],
+ ['abacaxi-tradizionale','Abacaxi','tradizionale','Pote','1 L e 2 L',null,'abacaxi-2l'],
+ ['chocolate-tradizionale','Chocolate','tradizionale','Pote','1 L e 2 L',null,'chocolate-2l'],
+ ['leite-condensado-tradizionale','Leite Condensado','tradizionale','Pote','1 L e 2 L',null,'leite-condensado-2l'],
+ ['morango-tradizionale','Morango','tradizionale','Pote','1 L e 2 L',null,'morango-2l'],
+ ['napolitano-tradizionale','Napolitano','tradizionale','Pote','1 L e 2 L',null,'napolitano-2l'],
+ ['passas-ao-rum-tradizionale','Passas ao Rum','tradizionale','Pote','1 L · 500 g',null,'passas-ao-rum-1l'],
+ ['uva-ao-creme-tradizionale','Uva ao Creme','tradizionale','Pote','1 L · 500 g',null,'uva-ao-creme-1l'],
+ ['baunilha-tradizionale','Baunilha','tradizionale','Pote','2 L · 1 kg',null,'baunilha-2l'],
+ ['creme-tradizionale','Creme','tradizionale','Pote','2 L · 1 kg',null,'creme-2l'],
+ ['coco-branco-tradizionale','Coco Branco','tradizionale','Pote','2 L · 1 kg',null,'coco-branco-2l'],
+ ['milho-verde-tradizionale','Milho Verde','tradizionale','Pote','2 L · 1 kg',null,'milho-verde-2l'],
+ ['mousse-de-limao-tradizionale','Mousse de Limão','tradizionale','Pote','1 L · 500 g',null,'mousse-limao-1l'],
  ['unicornio-combinatto','Unicórnio','combinatto','Pote','1,5 L · 750g','Sorvete sabor artificial de chiclete e algodão doce','unicornio'],
  ['beijinho-e-brigadeiro-combinatto','Beijinho e Brigadeiro','combinatto','Pote','1,5 L · 750g','Sorvete sabor artificial de beijinho e brigadeiro','beijinho-brigadeiro'],
  ['iogurte-de-morango-e-leitinho-combinatto','Iogurte de Morango e Leitinho','combinatto','Pote','1,5 L · 750g','Sorvete sabor artificial iogurte de morango e leitinho','iogurte-morango-leitinho'],
@@ -447,18 +453,19 @@ const P = [
  ['amore-mio-bambini','Amore Mio','bambini','Picolé','70g','Picolé de leite sabor iogurte de morango','amore-mio'],
  ['creme-do-ceu-bambini','Creme do Céu','bambini','Picolé e pote','',null,null],
  ['chicletes-bambini','Chicletes','bambini','Pote','',null,null],
- ['morango-conitos','Conitos Morango','outros','Cone','',null,null],
- ['chocolate-conitos','Conitos Chocolate','outros','Cone','',null,null],
- ['flocos-conitos','Conitos Flocos','outros','Cone','',null,null],
- ['morango-pertutti','Pertutti Morango','outros','Potinho','',null,null],
- ['chocolate-pertutti','Pertutti Chocolate','outros','Potinho','',null,null],
- ['flocos-pertutti','Pertutti Flocos','outros','Potinho','',null,null],
- ['chocolate-sundae','Sundae Chocolate','outros','Copo','',null,null],
- ['morango-sundae','Sundae Morango','outros','Copo','',null,null],
- ['moreninha','Moreninha','outros','[A confirmar]','',null,null],
- ['colegial','Colegial','outros','Pote','',null,null],
- ['pote-7-litros','Pote 7 L','food','Pote','7 L',null,null],
- ['pote-10-litros','Pote 10 L','food','Pote','10 L',null,null]
+ ['morango-conitos','Conitos Morango','outros','Cone','75 g',null,'conitos-morango'],
+ ['chocolate-conitos','Conitos Chocolate Premium','outros','Cone','75 g',null,'conitos-chocolate'],
+ ['flocos-conitos','Conitos Flocos','outros','Cone','75 g',null,'conitos-flocos'],
+ ['morango-pertutti','Pertutti Morango','outros','Potinho','120 g',null,null],
+ ['chocolate-pertutti','Pertutti Chocolate','outros','Potinho','120 g',null,'pertutti-chocolate'],
+ ['flocos-pertutti','Pertutti Flocos','outros','Potinho','120 g',null,'pertutti-flocos'],
+ ['leite-condensado-pertutti','Pertutti Leite Condensado','outros','Potinho','120 g',null,'pertutti-leite-condensado'],
+ ['chocolate-sundae','Sundae Chocolate','outros','Copo','100 g','Sorvete sabor chocolate','sundae-chocolate'],
+ ['morango-sundae','Sundae Morango','outros','Copo','100 g','Sorvete sabor artificial de morango','sundae-morango'],
+ ['moreninha','Moreninha','outros','Casquinha','',null,null],
+ ['colegial-tradizionale','Colegial','tradizionale','Pote','1 L · 500 g',null,'colegial-1l'],
+ ['pote-7-litros','Pote 7 L','food','Pote','7 L · 3,6 kg',null,'pote-7l'],
+ ['pote-10-litros','Pote 10 L','food','Pote','10 L · 4,8 kg',null,'pote-10l']
 ]
 .map(a=>({slug:a[0],nome:a[1],linha:a[2],formato:a[3],tam:a[4],desc:a[5],img:a[6]?('img/'+a[6]+'.webp'):null}));
 
@@ -619,12 +626,12 @@ function vantagens(){return `<div class="vantagens">
 
 function faq(){const q=[
   ['Onde posso comprar sorvete Treviso?','Em mercados, padarias, lanchonetes e sorveterias parceiras. Use a página Onde encontrar para ver os pontos da sua cidade.'],
-  ['A Treviso vende direto para o consumidor?','Sim, com retirada na fábrica, em Marumbi (PR). A Treviso não faz entrega para consumidor final. [Horário de atendimento — confirmar]'],
-  ['Como funciona o freezer em comodato?','O freezer é liberado depois de uma análise de crédito do estabelecimento. Aprovado o cadastro, o pedido mínimo fica entre R$ 1.800 e R$ 3.000, com entrega semanal ou quinzenal conforme o giro.'],
+  ['A Treviso vende direto para o consumidor?','Sim, com retirada na fábrica, em Marumbi (PR). Atendimento de segunda a sexta, das 7h às 17h. A Treviso não faz entrega para consumidor final.'],
+  ['Como funciona o freezer em comodato?','O freezer é liberado depois de uma análise de crédito do estabelecimento. Aprovado o cadastro, as condições de pedido mínimo e pagamento são passadas pelo time comercial, com entrega semanal ou quinzenal conforme o giro.'],
   ['Como faço para revender Treviso?','Preencha o formulário em Seja revendedor. O representante da sua região entra em contato pelo WhatsApp.'],
   ['Onde vejo ingredientes, alergênicos e tabela nutricional?','Todas essas informações estão impressas na embalagem de cada produto. [Em breve também na página de cada sabor.]'],
   ['Em quais cidades a Treviso está?','A Treviso atende mais de 150 cidades do Paraná, com cerca de 2.500 pontos de venda, a partir da fábrica em Marumbi.'],
-  ['A Treviso tem opções sem açúcar ou sem lactose?','[Confirmar com a Treviso]']];
+  ['A Treviso tem opções sem açúcar ou sem lactose?','A Treviso tem um picolé proteico, feito em parceria com a Boca Nutrition. [Sabores e informações nutricionais — confirmar]']];
   return `<div class="faq rev">${q.map(([a,b])=>`<details><summary>${a}</summary><p>${b}</p></details>`).join('')}</div>`}
 
 function formRevenda(){return `<form class="form" id="form-revenda" novalidate>
@@ -737,7 +744,7 @@ function onde(){
     <span class="contagem" id="cont-pontos" aria-live="polite"></span>
   </div>
   <div class="grade-pontos" id="grade-pontos"></div>
-  <p class="pend" style="margin-top:28px">Prévia: pontos encontrados em pesquisa pública, só para demonstração. A Treviso vai decidir se o site mostra os pontos com endereço ou só a lista de cidades atendidas.</p>
+  <p class="pend" style="margin-top:28px">Prévia: pontos encontrados em pesquisa pública, só para demonstração. A lista oficial, com nome e endereço de cada ponto, será enviada pela Treviso.</p>
   <div class="duas" style="margin-top:60px"><div><h2 class="t" style="font-size:44px;color:var(--blu-esc);margin:0">Não achou um ponto na sua cidade?</h2><p class="sub">Indique um estabelecimento ou leve a Treviso para o seu negócio. Também dá para comprar direto na fábrica, com retirada em Marumbi.</p></div><p><a class="btn btn-rosso" href="#revenda">Quero revender Treviso</a></p></div>
   </div></section>`}
 
@@ -763,7 +770,7 @@ function revenda(){return `<section class="bloco azul"><div class="wrap duas" st
       <li style="--c:var(--verde)"><span class="ano t">1. Cadastro</span><p>Você preenche o formulário com os dados do seu negócio.</p></li>
       <li style="--c:var(--blu)"><span class="ano t">2. Contato</span><p>O representante da sua região fala com você pelo WhatsApp.</p></li>
       <li style="--c:var(--rosso)"><span class="ano t">3. Análise de crédito</span><p>A Treviso analisa o cadastro do seu estabelecimento para liberar o freezer em comodato.</p></li>
-      <li style="--c:var(--verde)"><span class="ano t">4. Primeiro pedido</span><p>Com o cadastro aprovado, o pedido mínimo fica entre R$ 1.800 e R$ 3.000. [Condições de pagamento — confirmar]</p></li>
+      <li style="--c:var(--verde)"><span class="ano t">4. Primeiro pedido</span><p>Com o cadastro aprovado, você faz o primeiro pedido. Pedido mínimo, prazos e parcelamento sob consulta, definidos pelo financeiro da Treviso.</p></li>
       <li style="--c:var(--blu)"><span class="ano t">5. Entrega</span><p>Entregas semanais ou quinzenais, de acordo com o giro do seu ponto.</p></li>
     </ol>
   </div></section>`}
@@ -775,7 +782,7 @@ function contato(){return `<section class="bloco"><div class="wrap">
     <div class="contato rev"><span class="eyebrow" style="color:var(--rosso)">Telefone</span><b class="t">(43) 3441-1490</b><span>[WhatsApp comercial — confirmar]</span></div>
     <div class="contato rev"><span class="eyebrow" style="color:var(--rosso)">Instagram</span><b class="t">@sorvetestreviso</b><a href="https://www.instagram.com/sorvetestreviso/" target="_blank" rel="noopener">Abrir perfil</a></div>
   </div>
-  <div class="contato rev" style="margin-top:16px"><span class="eyebrow" style="color:var(--rosso)">Fábrica</span><b class="t">Rua Otavio Cividini, [nº] · Marumbi – PR</b><span>Sorvetes Treviso LTDA · CNPJ 00.153.607/0001-01</span><span>Compra para consumidor final: retirada na fábrica (sem entrega).</span><span>[Trabalhe conosco — confirmar se entra no site]</span></div>
+  <div class="contato rev" style="margin-top:16px"><span class="eyebrow" style="color:var(--rosso)">Fábrica</span><b class="t">Rua Otavio Cividini, [nº] · Marumbi – PR</b><span>Sorvetes Treviso LTDA · CNPJ 00.153.607/0001-01</span><span>Compra para consumidor final: retirada na fábrica, de segunda a sexta, das 7h às 17h (sem entrega).</span><span>[Trabalhe conosco — confirmar se entra no site]</span></div>
   </div></section>`}
 
 function privacidade(){return `<section class="bloco"><div class="wrap texto">
