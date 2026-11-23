@@ -264,6 +264,9 @@ section.bloco{padding:100px 0}
 .food-ideias li{background:#fff;border-radius:16px;padding:16px 20px;border:1px solid #DCE5F3;font-variation-settings:'wdth' 300,'wght' 600;color:var(--blu-esc)}
 @media (max-width:1000px){.food-linhas{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:600px){.food-linhas{grid-template-columns:1fr}}
+.video-inst{margin-top:40px;border-radius:var(--raio);overflow:hidden;background:#0b1530;aspect-ratio:16/9;box-shadow:0 30px 60px rgba(15,27,51,.18)}
+.video-inst video{width:100%;height:100%;display:block;object-fit:cover}
+.video-leg{margin:14px 0 0;color:var(--cinza);font-size:14px}
 .grade-pontos{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
 .onde-filtros{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:12px;width:100%}
 .campo-cid select{width:100%;min-height:56px;border-radius:999px;border:1.5px solid #D5DEEE;background:#fff;padding:0 22px;font:inherit;font-size:17px;color:var(--blu-esc);font-variation-settings:'wdth' 300,'wght' 600;appearance:auto}
@@ -979,9 +982,9 @@ function sobre(){return `<section class="hero" style="padding-bottom:0"><div cla
     <div class="rev"><p class="eyebrow" style="color:var(--rosso)">Linha do tempo</p><h2 class="titulo t">Nossa <em>história</em></h2>
     <p class="sub">Em agosto de 1993, Mauro Favaro e a família viram o potencial do mercado de sorvetes e compraram um pequeno comércio em Marumbi. A cidade era pequena, as vendas eram limitadas e a gestão se aprendia na prática. O que nunca faltou foi bom atendimento, respeito ao cliente e capricho no produto.</p>
     <p class="sub">A qualidade gerou procura, e a procura levou a Treviso para as cidades vizinhas. Nos anos 2000, a marca chegou aos restaurantes, padarias, supermercados e mercearias, ficando mais perto de quem compra. Hoje segue crescendo sem perder a essência familiar.</p>
-    <p class="pend">[Origem do nome Treviso — confirmar se entra]</p></div>
+    <p class="sub">O nome é uma homenagem às origens da família: Treviso é a cidade italiana de onde vieram os avós, do lado paterno. Antes de fabricar, a família passou cerca de um ano revendendo sorvete, até começar a produção própria, devagar e com as próprias mãos.</p></div>
     <ol class="tempo rev">
-      <li style="--c:var(--verde)"><span class="ano t">1993</span><p>Em agosto, Mauro Favaro e a família compram um comércio em Marumbi (PR). Nasce a Treviso.</p></li>
+      <li style="--c:var(--verde)"><span class="ano t">1993</span><p>Em agosto, Mauro Favaro e a família compram um comércio em Marumbi (PR). Nasce a Treviso, primeiro revendendo sorvete e depois fabricando o próprio.</p></li>
       <li style="--c:var(--blu)"><span class="ano t">1996</span><p>A Treviso passa a abastecer as cidades vizinhas.</p></li>
       <li style="--c:var(--rosso)"><span class="ano t">Anos 2000</span><p>Chegada a restaurantes, padarias, supermercados e mercearias.</p></li>
       <li style="--c:var(--verde)"><span class="ano t">2023</span><p>Nova identidade visual, com os arcos nas cores verde, blu e rosso.</p></li>
@@ -993,12 +996,11 @@ function sobre(){return `<section class="hero" style="padding-bottom:0"><div cla
     <div class="rev"><p class="eyebrow" style="color:var(--verde)">Em números</p><h2 class="titulo t">A Treviso <em>hoje</em></h2>
     <p class="sub">Uma fábrica moderna, uma rede de distribuição que cobre o Paraná e uma equipe que cresce junto com a empresa. Números informados pela Treviso em novembro de 2026.</p></div>
     ${numeros()}</div></section>
-  <section class="bloco"><div class="wrap duas">
-    <div class="rev"><p class="eyebrow" style="color:var(--blu)">A fábrica</p><h2 class="titulo t">Por dentro <em>da produção</em></h2>
+  <section class="bloco"><div class="wrap">
+    <div class="duas rev" style="align-items:end"><div><p class="eyebrow" style="color:var(--blu)">A fábrica</p><h2 class="titulo t">Por dentro <em>da produção</em></h2></div>
     <p class="sub">São cerca de 5.500 m² de área construída, com equipamentos modernos e processos pensados para manter o padrão de qualidade. A equipe passa por treinamento constante, e boa parte dos colaboradores está na Treviso há mais de 10 anos.</p></div>
-    <div class="vazio rev" style="min-height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
-      <svg aria-hidden="true" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9.5v5l4-2.5z"/></svg>
-      <b>Vídeo e fotos da fábrica</b><span>[Aguardando material de produção]</span></div>
+    <div class="video-inst rev"><video controls playsinline preload="none" poster="img/institucional-poster.webp" aria-label="Vídeo institucional da Sorvetes Treviso"><source src="img/institucional-720.mp4" type="video/mp4">Seu navegador não reproduz vídeo.</video></div>
+    <p class="video-leg">Vídeo institucional Treviso · 2 min</p>
   </div></section>`}
 
 function onde(){
