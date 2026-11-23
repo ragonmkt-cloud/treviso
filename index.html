@@ -251,6 +251,19 @@ section.bloco{padding:100px 0}
 @media (max-width:600px){.vantagens{grid-template-columns:1fr}}
 
 /* pontos */
+.food-extra{margin-top:64px;display:flex;flex-direction:column;gap:56px}
+.food-extra[hidden]{display:none}
+.food-bloco h2{font-size:clamp(40px,5vw,64px);margin:6px 0 0;color:var(--blu-esc);line-height:.95}
+.food-bloco h2 em{font-style:normal;color:var(--blu)}
+.food-linhas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:28px}
+.food-linha{background:#fff;border-radius:20px;padding:24px;border:1px solid #DCE5F3}
+.food-linha h3{margin:0;font-size:32px;color:var(--blu-esc)}
+.food-linha .qtd{margin:2px 0 12px;color:var(--cinza);font-size:14px}
+.food-linha ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.35}
+.food-ideias{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.food-ideias li{background:#fff;border-radius:16px;padding:16px 20px;border:1px solid #DCE5F3;font-variation-settings:'wdth' 300,'wght' 600;color:var(--blu-esc)}
+@media (max-width:1000px){.food-linhas{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.food-linhas{grid-template-columns:1fr}}
 .grade-pontos{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
 .onde-filtros{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:12px;width:100%}
 .campo-cid select{width:100%;min-height:56px;border-radius:999px;border:1.5px solid #D5DEEE;background:#fff;padding:0 22px;font:inherit;font-size:17px;color:var(--blu-esc);font-variation-settings:'wdth' 300,'wght' 600;appearance:auto}
@@ -378,7 +391,7 @@ const LINHAS = {
   combinatto: {nome:'Combinatto',  fam:'rosso',  fmt:'Potes de 1,5 L com dois sabores',      bg:'#F8E7F2', ink:'#6B2C6E', capa:'img/unicornio.webp',         txt:'Dois sabores lado a lado no mesmo pote. Para quem não consegue escolher só um.'},
   bambini:    {nome:'Bambini',     fam:'bianco', fmt:'Linha infantil',                       bg:'#E3F2FB', ink:'#B0144F', capa:'img/amore-mio.webp',         txt:'Sabores e formatos pensados para os pequenos, como o picolé em forma de coração.'},
   outros:     {nome:'Outros formatos', fam:'bianco', fmt:'Cones, copos e potinhos',            bg:'#FBEBDD', ink:'#6B3A1E', capa:'img/cover-conitos.webp',     txt:'Conitos, Sundae, Pertutti e Moreninha: casquinha, copo e potinho, formatos práticos para levar na mão. [Nome do grupo — confirmar com a Treviso]'},
-  food:       {nome:'Potes 7 e 10 L', fam:'bianco', fmt:'Para sorveterias e food service',     bg:'#E6EEF9', ink:'#0B2E73', capa:'img/pote-10l.webp',            txt:'Potes grandes para sorveterias, lanchonetes e restaurantes que servem na casquinha ou na taça. [Sabores disponíveis — confirmar]'}
+  food:       {nome:'Food service', fam:'bianco', fmt:'Caixas de 7 e 10 L para restaurantes e cafeterias', bg:'#E6EEF9', ink:'#0B2E73', capa:'img/pote-10l.webp', txt:'Sorvete feito com leite de verdade para restaurantes, buffets e cafeterias que querem servir sobremesas e bebidas com sabor, rendimento e boa margem.'}
 };
 const SLIDES = [
   {id:'difrutta', linha:'Difrutta', sub:'picolés de fruta', halo:'rgba(157,178,36,.45)', tit:'Fruta que<br><em>refresca</em>.', lead:'Abacaxi, uva, limão, groselha e minissaia: cinco picolés de fruta para o calor de todo dia.', imgs:['uva','groselha','limao']},
@@ -394,6 +407,25 @@ function emBreve(){return `<section class="bloco" style="padding-top:0"><div cla
   <div class="cab rev"><div><p class="eyebrow" style="color:var(--verde-esc)">Vem aí</p><h2 class="titulo t">Em <em>breve</em> no freezer</h2></div></div>
   <div class="breve">${EM_BREVE.map(e=>`<article class="familia ${e.fam} rev"><div><span class="cor">Lançamento em janeiro</span><h3 class="t">${e.nome}</h3><p>${e.txt}</p><p style="opacity:.75;font-size:14px;margin-top:6px">${e.det}</p></div><img src="img/${e.img}.webp" alt="Embalagem ${e.nome}" loading="lazy"></article>`).join('')}</div>
   </div></section>`}
+const FOOD = {
+ sabores: {
+  'Tradizionale': ['Abacaxi','Ameixa','Baunilha','Cereja','Chiclete','Chocolate','Coco Branco','Creme','Creme do Céu','Leite Condensado','Limão Suíço','Mamão com Cassis','Milho Verde','Morango','Napolitano','Uva ao Creme'],
+  'Speciale': ['Abacaxi ao Vinho','Alfajor','Banana Flambada','Beijinho','Bello Ferrero','Chocolate Branco','Flocos','Floresta Negra','Jabuticaba','Leite Condensado ao Vinho','Maracujá','Menta com Chocolate','Mesclabom','Mousse de Limão','Olho de Sogra','Ouro Negro','Passas ao Rum','Sensações','Torta Alemã','Torta de Limão'],
+  'Celebrare': ['Amor Perfeito (mousse de limão com maracujá)','Banoffee Trufado','Brigadeiro de Colher','Café Moka','Camafeu (nozes com doce de leite)','Choco Duo (chocolate branco com trufa)','Chocolate Belga 50%','Churros','Cookies','Doce de Leite Argentino','Dois Amores (morango com chocolate branco)','Dolce Café','Frutas Silvestres','Iogurte com Amarena','Iogurte Grego','Leitinho Crocante','Leitinho Trufado','Marula (não alcoólico)','Nutiello','Oro Bianco','Palha Italiana','Pipoca Caramelizada','Pistache','Trufado'],
+  'Combinatto': ['Beijinho e Brigadeiro','Unicórnio (chiclete e algodão-doce)','Iogurte de Morango com Leitinho','Passione (maracujá com chocolate branco)','Franatta (framboesa com nata)']
+ },
+ ideias: ['Petit gâteau com sorvete de creme','Brownie com sorvete de baunilha','Frutas grelhadas com sorvete','Cappuccino gelado','Torta de maçã com bola de sorvete','Affogato: espresso com sorvete de baunilha ou creme','Milk-shake com creme americano: morango, chocolate, paçoca']
+};
+function foodExtra(){return `<div id="food-extra" class="food-extra">
+  <div class="food-bloco"><p class="eyebrow" style="color:var(--blu)">Caixa de 7 L</p><h2 class="t">Sabores para o seu <em>cardápio</em></h2>
+   <p class="sub">Além dos itens acima, as linhas Treviso também saem na caixa de 7 L.</p>
+   <div class="food-linhas">${Object.entries(FOOD.sabores).map(([l,ss])=>`<div class="food-linha"><h3 class="t">${l}</h3><p class="qtd">${ss.length} sabores</p><ul>${ss.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`).join('')}</div>
+   <p class="pend" style="margin-top:20px">[Alguns sabores do catálogo usam marcas de outras empresas e ficam fora do site até a Treviso confirmar como mostrar.]</p></div>
+  <div class="food-bloco duas" style="align-items:start"><div><p class="eyebrow" style="color:var(--rosso)">Ideias de cardápio</p><h2 class="t">Sorvete que <em>vende junto</em></h2>
+   <p class="sub">Sugestões para usar os sorvetes Treviso em sobremesas e bebidas.</p>
+   <p style="margin-top:24px"><a class="btn btn-blu" href="#revenda">Peça uma cotação ${seta}</a></p></div>
+   <ul class="food-ideias">${FOOD.ideias.map(i=>`<li>${esc(i)}</li>`).join('')}</ul></div>
+ </div>`}
 const FAMILIAS = {
   verde:  {cls:'f-verde',  cor:'Verde',  titulo:'Fruta e frescor', txt:'Picolés de fruta para os dias quentes, leves e cheios de cor.'},
   bianco: {cls:'f-bianco', cor:'Bianco', titulo:'Cremoso de sempre', txt:'Os clássicos de leite, em picolé, pote e casquinha, que a família inteira conhece.'},
@@ -472,8 +504,12 @@ const P = [
  ['morango-sundae','Sundae Morango','outros','Copo','100 g','Sorvete sabor artificial de morango','sundae-morango'],
  ['moreninha','Moreninha','outros','Casquinha','',null,null],
  ['colegial-tradizionale','Colegial','tradizionale','Pote','1 L · 500 g',null,'colegial-1l'],
- ['pote-7-litros','Pote 7 L','food','Pote','7 L · 3,6 kg',null,'pote-7l'],
- ['pote-10-litros','Pote 10 L','food','Pote','10 L · 4,8 kg',null,'pote-10l']
+ ['creme-especial-10l','Creme Especial','food','Caixa','10 L',null,'pote-10l'],
+ ['base-milk-shake-10l','Base para Milk Shake Vanilha Ice','food','Caixa','10 L','Creme americano, base para milk-shakes.','pote-10l'],
+ ['nata-10l','Nata','food','Caixa','10 L',null,'pote-10l'],
+ ['baunilha-7l','Baunilha Toque Refinado','food','Caixa','7 L',null,'pote-7l'],
+ ['chocolate-7l','Chocolate','food','Caixa','7 L',null,'pote-7l'],
+ ['morango-7l','Morango','food','Caixa','7 L',null,'pote-7l']
 ]
 .map(a=>({slug:a[0],nome:a[1],linha:a[2],formato:a[3],tam:a[4],desc:a[5],img:a[6]?('img/'+a[6]+'.webp'):null}));
 
@@ -897,6 +933,7 @@ function produtos(){
     <span class="contagem" id="contagem" aria-live="polite"></span>
   </div>
   <div class="grade-prod" id="grade"></div>
+  ${foodExtra()}
   </div></section>`}
 
 function filtrar(){
@@ -907,6 +944,7 @@ function filtrar(){
   $('#grade').innerHTML=lista.length?lista.map(cardProd).join(''):`<div class="vazio" style="grid-column:1/-1">Nenhum sabor encontrado com esses filtros.</div>`;
   $('#contagem').textContent=lista.length+(lista.length===1?' produto':' produtos');
   document.querySelectorAll('[data-linha]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.linha===estado.linha));
+  const fx=$('#food-extra'); if(fx) fx.hidden=estado.linha!=='food';
   document.querySelectorAll('[data-formato]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.formato===estado.formato));
 }
 
