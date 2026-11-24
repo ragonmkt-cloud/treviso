@@ -419,18 +419,20 @@ footer .copy{border-top:1px solid rgba(255,255,255,.12);padding:18px 24px 30px;m
 const LINHAS = {
   difrutta:   {nome:'Difrutta',    fam:'verde',  fmt:'Picolés de fruta · 60g',               bg:'#EEF3D2', ink:'#3F4A08', capa:'img/limao.webp',             txt:'O picolé de fruta da casa: leve, colorido e direto ao ponto. Cinco sabores para o calor do dia a dia.'},
   dilatte:    {nome:'Dilatte',     fam:'bianco', fmt:'Picolés de leite · 60g',               bg:'#FDE6EC', ink:'#8A0F38', capa:'img/morango-dilatte.webp',   txt:'Picolés de leite cremosos, com os sabores clássicos que todo mundo procura no freezer.'},
-  speciale:   {nome:'Speciale',    fam:'rosso',  fmt:'Picolés com cobertura e potes de 2 L', bg:'#E3F2F8', ink:'#4A2A1A', capa:'img/skimo.webp',             txt:'Cobertura, recheio e camadas. A linha para quem quer um sorvete mais caprichado, no palito ou no pote.'},
+  speciale:   {nome:'Speciale',    fam:'rosso',  fmt:'Picolés com cobertura e potes de 1,5 L e 2 L', bg:'#E3F2F8', ink:'#4A2A1A', capa:'img/skimo.webp',             txt:'Cobertura, recheio e camadas. A linha para quem quer um sorvete mais caprichado, no palito ou no pote.'},
   celebrare:  {nome:'Celebrare',   fam:'rosso',  fmt:'Picolés e potes de 1,5 L',             bg:'#F6EBD5', ink:'#5A3415', capa:'img/trufado.webp',           txt:'Trufas, recheios e combinações especiais. Feita para as ocasiões que pedem algo a mais.'},
   tradizionale:{nome:'Tradizionale',fam:'bianco',fmt:'Potes de 1 L e 2 L',                   bg:'#E8F1E4', ink:'#1F5130', capa:'img/cover-tradizionale.webp',txt:'Os sabores de sempre em potes para a família: do napolitano ao milho verde, em 1 L e 2 L.'},
   combinatto: {nome:'Combinatto',  fam:'rosso',  fmt:'Potes de 1,5 L com dois sabores',      bg:'#F8E7F2', ink:'#6B2C6E', capa:'img/unicornio.webp',         txt:'Dois sabores lado a lado no mesmo pote. Para quem não consegue escolher só um.'},
   bambini:    {nome:'Bambini',     fam:'bianco', fmt:'Linha infantil',                       bg:'#E3F2FB', ink:'#B0144F', capa:'img/amore-mio.webp',         txt:'Sabores e formatos pensados para os pequenos, como o picolé em forma de coração.'},
+  proteico:   {nome:'Proteico',    fam:'rosso',  fmt:'Picolés proteicos · 70 g',             bg:'#ECECEC', ink:'#1A1A1A', capa:'img/morango-power.webp',     txt:'Collab Treviso e Boca Nutrition: picolés com 10 a 11 g de proteína e zero adição de açúcares, com textura cremosa e recheio.'},
+  salutte:    {nome:'Salutte',     fam:'verde',  fmt:'Açaí em potes de 200 g e 1 L',         bg:'#F1E6F5', ink:'#4B1A5E', capa:'img/acai-guarana-200g.webp', txt:'Açaí com guaraná com 48% de polpa de açaí e 0% de gordura trans, no copo individual ou no pote para a família.'},
   outros:     {nome:'Outros formatos', fam:'bianco', fmt:'Cones, copos e potinhos',            bg:'#FBEBDD', ink:'#6B3A1E', capa:'img/cover-conitos.webp',     txt:'Conitos, Sundae, Pertutti e Moreninha: casquinha, copo e potinho, formatos práticos para levar na mão. [Nome do grupo — confirmar com a Treviso]'},
-  food:       {nome:'Food service', fam:'bianco', fmt:'Caixas de 7 e 10 L para restaurantes e cafeterias', bg:'#E6EEF9', ink:'#0B2E73', capa:'img/pote-10l.webp', txt:'Sorvete feito com leite de verdade para restaurantes, buffets e cafeterias que querem servir sobremesas e bebidas com sabor, rendimento e boa margem.'}
+  food:       {nome:'Food service', fam:'bianco', fmt:'Caixas de 6 kg, 7 L e 10 L para restaurantes e cafeterias', bg:'#E6EEF9', ink:'#0B2E73', capa:'img/pote-10l.webp', txt:'Sorvete feito com leite de verdade para restaurantes, buffets e cafeterias que querem servir sobremesas e bebidas com sabor, rendimento e boa margem.'}
 };
 const SLIDES = [
   {id:'difrutta', linha:'Difrutta', sub:'picolés de fruta', halo:'rgba(157,178,36,.45)', tit:'Fruta que<br><em>refresca</em>.', lead:'Abacaxi, uva, limão, groselha e minissaia: cinco picolés de fruta para o calor de todo dia.', imgs:['uva','groselha','limao']},
   {id:'dilatte', linha:'Dilatte', sub:'picolés de leite', halo:'rgba(255,170,200,.45)', tit:'Cremoso<br><em>de sempre</em>.', lead:'Nove sabores de picolé de leite, do morango ao milho verde, com o gosto que todo mundo procura no freezer.', imgs:['chocolate-dilatte','milho-verde-dilatte','morango-dilatte']},
-  {id:'speciale', linha:'Speciale', sub:'cobertura e recheio', halo:'rgba(120,200,235,.45)', tit:'Cobertura,<br><em>recheio</em> e capricho.', lead:'Picolés com cobertura e potes de 2 litros para quem quer um sorvete mais caprichado.', imgs:['skimo','skicoco','dois-amores']},
+  {id:'speciale', linha:'Speciale', sub:'cobertura e recheio', halo:'rgba(120,200,235,.45)', tit:'Cobertura,<br><em>recheio</em> e capricho.', lead:'Picolés com cobertura e potes de 1,5 e 2 litros para quem quer um sorvete mais caprichado.', imgs:['skimo','skicoco','dois-amores']},
   {id:'celebrare', linha:'Celebrare', sub:'para ocasiões especiais', halo:'rgba(234,73,73,.4)', tit:'Feito para<br><em>celebrar</em>.', lead:'Trufas, recheios e potes de 1,5 litro para os momentos que pedem algo a mais.', imgs:['pe-de-moleque','chocobom','trufado'], pote:true}
 ];
 const EM_BREVE = [
@@ -489,12 +491,10 @@ const P = [
  ['sensacoes-speciale','Sensações','speciale','Pote','2 L · 1 kg','Sorvete sabor artificial de morango com pedaços de chocolate ao leite e cobertura de morango','sensacoes'],
  ['mesclabom-speciale','Mesclabom','speciale','Pote','2 L · 1 kg','Sorvete sabor artificial de leite condensado com pedaços de chocolate ao leite e cobertura de morango','mesclabom'],
  ['torta-alema-speciale','Torta Alemã','speciale','Pote','2 L · 1 kg','Sorvete sabor artificial de chocolate branco com pedaços de chocolate ao leite e cobertura de chocolate','torta-alema'],
- ['alfajor-speciale','Alfajor','speciale','Pote','2 L',null,null],
- ['flocos-speciale','Flocos','speciale','Pote','2 L',null,null],
- ['iogurte-com-amora-speciale','Iogurte com Amora','speciale','Pote','2 L',null,null],
- ['mousse-de-limao-speciale','Mousse de Limão','speciale','Pote','2 L',null,null],
- ['olho-de-sogra-speciale','Olho de Sogra','speciale','Pote','2 L',null,null],
- ['ouro-negro-speciale','Ouro Negro','speciale','Pote','2 L',null,null],
+ ['alfajor-speciale','Alfajor','speciale','Pote','1,5 L · 750 g','Sorvete sabor artificial de doce de leite com pedaços de chocolate branco e cobertura sabor artificial de chocolate','alfajor-speciale'],
+ ['flocos-speciale','Flocos','speciale','Pote','1,5 L · 750 g','Sorvete sabor artificial de nata com pedaços de chocolate ao leite','flocos-speciale'],
+ ['iogurte-com-amora-speciale','Iogurte com Amora','speciale','Pote','',null,null],
+  ['olho-de-sogra-speciale','Olho de Sogra','speciale','Pote','1,5 L · 750 g','Sorvete sabor artificial de leite condensado com polpa de ameixa e ameixas secas','olho-de-sogra-speciale'],
  ['bello-ferrero-speciale','Bello Ferrero','speciale','Pote','1,5 L · 750 g',null,'bello-ferrero-pote'],
  ['bello-ferrero-celebrare','Bello Ferrero','celebrare','Picolé','73 g','Picolé sabor chocolate com avelã, recheio de creme de avelã e cobertura de chocolate com castanhas e biscoito','bello-ferrero-picole'],
  ['pe-de-moleque-celebrare','Pé de Moleque','celebrare','Picolé','75g','Picolé sabor artificial de bombom com recheio de creme de amendoim e cobertura de chocolate com amendoim','pe-de-moleque'],
@@ -518,15 +518,22 @@ const P = [
  ['creme-tradizionale','Creme','tradizionale','Pote','2 L · 1 kg',null,'creme-2l'],
  ['coco-branco-tradizionale','Coco Branco','tradizionale','Pote','2 L · 1 kg',null,'coco-branco-2l'],
  ['milho-verde-tradizionale','Milho Verde','tradizionale','Pote','2 L · 1 kg',null,'milho-verde-2l'],
- ['mousse-de-limao-tradizionale','Mousse de Limão','tradizionale','Pote','1 L · 500 g',null,'mousse-limao-1l'],
+ ['mousse-de-limao-tradizionale','Mousse de Limão','tradizionale','Pote','1 L · 500 g','Sorvete sabor artificial de limão com cobertura sabor limão','mousse-limao-1l'],
  ['unicornio-combinatto','Unicórnio','combinatto','Pote','1,5 L · 750 g','Sorvete sabor artificial de chiclete e algodão doce','unicornio'],
  ['beijinho-e-brigadeiro-combinatto','Beijinho e Brigadeiro','combinatto','Pote','1,5 L · 750 g','Sorvete sabor artificial de beijinho e brigadeiro','beijinho-brigadeiro'],
  ['iogurte-de-morango-e-leitinho-combinatto','Iogurte de Morango e Leitinho','combinatto','Pote','1,5 L · 750 g','Sorvete sabor artificial iogurte de morango e leitinho','iogurte-morango-leitinho'],
  ['franatta-combinatto','Franatta','combinatto','Pote','1,5 L · 750 g','Sorvete sabor artificial de nata e framboesa','franatta-combinatto'],
  ['passione-combinatto','Passione','combinatto','Pote','1,5 L · 750 g','Sorvete sabor artificial de maracujá e chocolate branco','passione-combinatto'],
  ['amore-mio-bambini','Amore Mio','bambini','Picolé','70g','Picolé de leite sabor iogurte de morango','amore-mio'],
- ['creme-do-ceu-bambini','Creme do Céu','bambini','Pote','1,5 L',null,null],
- ['chicletes-bambini','Chicletes','bambini','Pote','1,5 L',null,null],
+ ['creme-do-ceu-bambini','Creme do Céu','bambini','Pote','',null,null],
+ ['chicletes-bambini','Chicletes','bambini','Pote','1 L · 500 g','Sorvete sabor artificial de chiclete','chicletes-bambini'],
+ ['pinta-lingua-bambini','Pinta Língua','bambini','Picolé','40 g','Picolé sabor pinta língua','pinta-lingua'],
+ ['morango-power-proteico','Morango Power','proteico','Picolé','70 g','Sabor artificial de morango com recheio de leitinho · 11 g de proteína','morango-power'],
+ ['leitinho-power-proteico','Leitinho Power','proteico','Picolé','70 g','Sabor leitinho com recheio de chocolate com avelã · 11 g de proteína','leitinho-power'],
+ ['cookies-power-proteico','Cookies Power','proteico','Picolé','70 g','Sabor cookies chocolate com recheio de leitinho com cookies · 10 g de proteína','cookies-power'],
+ ['bombom-power-proteico','Bombom Power','proteico','Picolé','70 g','Sabor chocolate com recheio de pasta de amendoim com trufa · 11 g de proteína','bombom-power'],
+ ['acai-com-guarana-200g','Açaí com Guaraná','salutte','Pote','200 g','Açaí com guaraná · 48% de polpa de açaí','acai-guarana-200g'],
+ ['acai-com-guarana-1l','Açaí com Guaraná','salutte','Pote','1 L · 1,02 kg','Açaí com guaraná · 48% de polpa de açaí','acai-guarana-1l'],
  ['morango-conitos','Conitos Morango','outros','Cone','75 g',null,'conitos-morango'],
  ['chocolate-conitos','Conitos Chocolate Premium','outros','Cone','75 g',null,'conitos-chocolate'],
  ['flocos-conitos','Conitos Flocos','outros','Cone','75 g',null,'conitos-flocos'],
@@ -543,7 +550,8 @@ const P = [
  ['nata-10l','Nata','food','Caixa','10 L',null,'pote-10l'],
  ['baunilha-7l','Baunilha Toque Refinado','food','Caixa','7 L',null,'pote-7l'],
  ['chocolate-7l','Chocolate','food','Caixa','7 L',null,'pote-7l'],
- ['morango-7l','Morango','food','Caixa','7 L',null,'pote-7l']
+ ['morango-7l','Morango','food','Caixa','7 L',null,'pote-7l'],
+ ['acai-com-guarana-6kg','Açaí com Guaraná Salutte','food','Caixa','6 kg','Açaí com guaraná · 48% de polpa de açaí','acai-guarana-caixa']
 ]
 .map(a=>({slug:a[0],nome:a[1],linha:a[2],formato:a[3],tam:a[4],desc:a[5],img:a[6]?('img/'+a[6]+'.webp'):null}));
 
@@ -1048,7 +1056,7 @@ function faq(){const q=[
   ['Como faço para revender Treviso?','Preencha o formulário em Seja revendedor. O representante da sua região entra em contato pelo WhatsApp. Se preferir, chame direto no WhatsApp comercial: (43) 9677-0141.'],
   ['Onde vejo ingredientes, alergênicos e tabela nutricional?','Todas essas informações estão impressas na embalagem de cada produto. [Em breve também na página de cada sabor.]'],
   ['Em quais cidades a Treviso está?','A Treviso atende mais de 150 cidades do Paraná, com cerca de 2.500 pontos de venda, a partir da fábrica em Marumbi.'],
-  ['A Treviso tem opções sem açúcar ou sem lactose?','A Treviso tem um picolé proteico, feito em parceria com a Boca Nutrition. [Sabores e informações nutricionais — confirmar]']];
+  ['A Treviso tem opções sem açúcar ou sem lactose?','A Treviso tem a linha Proteico, feita em parceria com a Boca Nutrition: picolés de 70 g com 10 a 11 g de proteína e zero adição de açúcares, nos sabores Morango, Leitinho, Cookies e Bombom Power.']];
   return `<div class="faq rev">${q.map(([a,b])=>`<details><summary>${a}</summary><p>${b}</p></details>`).join('')}</div>`}
 
 function formRevenda(){return `<form class="form" id="form-revenda" novalidate>
