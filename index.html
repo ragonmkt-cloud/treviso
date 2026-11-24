@@ -284,6 +284,8 @@ section.bloco{padding:100px 0}
 .mapa{min-height:560px;border-radius:var(--raio);overflow:hidden;background:#dfe6f2;z-index:0}
 .perto-ou{margin:0 0 10px}
 @media (max-width:860px){.perto{grid-template-columns:1fr}.mapa{min-height:380px;order:-1}.perto-ctrl{max-height:none}}
+.wpp-flut{position:fixed;right:20px;bottom:20px;z-index:40;width:60px;height:60px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 24px rgba(0,0,0,.22);transition:transform .2s}
+.wpp-flut:hover,.wpp-flut:focus-visible{transform:scale(1.07)}
 .grade-pontos{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
 .onde-filtros{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:12px;width:100%}
 .campo-cid select{width:100%;min-height:56px;border-radius:999px;border:1.5px solid #D5DEEE;background:#fff;padding:0 22px;font:inherit;font-size:17px;color:var(--blu-esc);font-variation-settings:'wdth' 300,'wght' 600;appearance:auto}
@@ -387,8 +389,9 @@ footer .copy{border-top:1px solid rgba(255,255,255,.12);padding:18px 24px 30px;m
     </nav>
     <div class="col">
       <b>Fale com a gente</b>
-      <span style="word-break:break-all">marketing@favarodistribuidora.com</span>
+      <span style="word-break:break-all">contato@sorvetestreviso.com.br</span>
       <span>(43) 3441-1490</span>
+      <a href="https://wa.me/554396770141" target="_blank" rel="noopener" style="color:inherit">WhatsApp (43) 9677-0141</a>
       <span>@sorvetestreviso</span>
       <span>Rua Otavio Cividini, [nº], Marumbi – PR</span>
     </div>
@@ -443,7 +446,7 @@ function foodExtra(){return `<div id="food-extra" class="food-extra">
    <p class="pend" style="margin-top:20px">[Alguns sabores do catálogo usam marcas de outras empresas e ficam fora do site até a Treviso confirmar como mostrar.]</p></div>
   <div class="food-bloco duas" style="align-items:start"><div><p class="eyebrow" style="color:var(--rosso)">Ideias de cardápio</p><h2 class="t">Sorvete que <em>vende junto</em></h2>
    <p class="sub">Sugestões para usar os sorvetes Treviso em sobremesas e bebidas.</p>
-   <p style="margin-top:24px"><a class="btn btn-blu" href="#revenda">Peça uma cotação ${seta}</a></p></div>
+   <p style="margin-top:24px"><a class="btn btn-blu" href="${wppLink('Olá! Tenho restaurante/cafeteria e quero uma cotação das caixas de sorvete Treviso.')}" target="_blank" rel="noopener">Peça uma cotação no WhatsApp ${seta}</a></p></div>
    <ul class="food-ideias">${FOOD.ideias.map(i=>`<li>${esc(i)}</li>`).join('')}</ul></div>
  </div>`}
 const FAMILIAS = {
@@ -1023,7 +1026,7 @@ function faq(){const q=[
   ['Onde posso comprar sorvete Treviso?','Em mercados, padarias, lanchonetes e sorveterias parceiras. Use a página Onde encontrar para ver os pontos da sua cidade.'],
   ['A Treviso vende direto para o consumidor?','Sim, com retirada na fábrica, em Marumbi (PR). Atendimento de segunda a sexta, das 7h às 17h. A Treviso não faz entrega para consumidor final.'],
   ['Como funciona o freezer em comodato?','O freezer é liberado depois de uma análise de crédito do estabelecimento. Aprovado o cadastro, as condições de pedido mínimo e pagamento são passadas pelo time comercial, com entrega semanal ou quinzenal conforme o giro.'],
-  ['Como faço para revender Treviso?','Preencha o formulário em Seja revendedor. O representante da sua região entra em contato pelo WhatsApp.'],
+  ['Como faço para revender Treviso?','Preencha o formulário em Seja revendedor. O representante da sua região entra em contato pelo WhatsApp. Se preferir, chame direto no WhatsApp comercial: (43) 9677-0141.'],
   ['Onde vejo ingredientes, alergênicos e tabela nutricional?','Todas essas informações estão impressas na embalagem de cada produto. [Em breve também na página de cada sabor.]'],
   ['Em quais cidades a Treviso está?','A Treviso atende mais de 150 cidades do Paraná, com cerca de 2.500 pontos de venda, a partir da fábrica em Marumbi.'],
   ['A Treviso tem opções sem açúcar ou sem lactose?','A Treviso tem um picolé proteico, feito em parceria com a Boca Nutrition. [Sabores e informações nutricionais — confirmar]']];
@@ -1040,12 +1043,13 @@ function formRevenda(){return `<form class="form" id="form-revenda" novalidate>
   <div class="campo"><label for="f-tipo">Tipo de negócio</label><select id="f-tipo" name="tipo"><option>Mercado</option><option>Padaria</option><option>Lanchonete</option><option>Sorveteria</option><option>Conveniência</option><option>Outro</option></select></div>
   <label class="consent"><input type="checkbox" id="f-lgpd" required> Autorizo a Treviso a usar estes dados para entrar em contato sobre revenda, conforme a <a href="#privacidade">Política de privacidade</a>.</label>
   <button class="btn btn-rosso" type="submit" style="min-height:58px;font-size:18px">Quero ser revendedor</button>
-  <small style="color:var(--cinza)">Prévia: na versão final, o envio abre o WhatsApp do comercial com os dados preenchidos.</small>
+  <small style="color:var(--cinza)">Ao enviar, abrimos o WhatsApp do comercial com os seus dados já preenchidos.</small>
   </div>
   <div class="ok" id="form-ok" hidden>
     <svg aria-hidden="true" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--blu)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>
     <p class="t" style="font-size:46px;color:var(--blu-esc);margin:12px 0">Grazie!</p>
-    <p style="margin:0;color:var(--cinza)">Prévia: na versão final, esta etapa abre a conversa no WhatsApp.</p>
+    <p style="margin:0 0 16px;color:var(--cinza)">Falta só um passo: envie a mensagem no WhatsApp do comercial.</p>
+    <a class="btn btn-rosso" id="form-wpp" href="#" target="_blank" rel="noopener" style="min-height:56px">Abrir o WhatsApp</a>
   </div>
 </form>`}
 
@@ -1158,6 +1162,8 @@ function onde(){
   </div></section>`}
 
 
+const WPP='554396770141';
+const wppLink=t=>'https://wa.me/'+WPP+'?text='+encodeURIComponent(t);
 const RAIO_KM=3;
 function distKm(a,b,c,d){const R=6371,r=x=>x*Math.PI/180,dl=r(c-a),dn=r(d-b);const h=Math.sin(dl/2)**2+Math.cos(r(a))*Math.cos(r(c))*Math.sin(dn/2)**2;return 2*R*Math.asin(Math.sqrt(h))}
 const mapaOK=()=>!/claude/i.test(location.hostname)&&location.protocol.startsWith('http');
@@ -1249,8 +1255,9 @@ function revenda(){return `<section class="bloco azul"><div class="wrap duas" st
 function contato(){return `<section class="bloco"><div class="wrap">
   <div class="cab rev"><div><p class="eyebrow" style="color:var(--blu)">Contato</p><h1 class="titulo t">Fale com <em>a Treviso</em></h1><p class="sub">Para revenda, use o formulário de <a href="#revenda">Seja revendedor</a>. Para outros assuntos, escolha o canal abaixo.</p></div></div>
   <div class="contatos">
-    <div class="contato rev"><span class="eyebrow" style="color:var(--rosso)">E-mail</span><b class="t" style="word-break:break-all;font-size:clamp(20px,2.2vw,30px)">marketing@favarodistribuidora.com</b></div>
-    <div class="contato rev"><span class="eyebrow" style="color:var(--rosso)">Telefone</span><b class="t">(43) 3441-1490</b><span>[WhatsApp comercial — confirmar]</span></div>
+    <div class="contato rev"><span class="eyebrow" style="color:var(--rosso)">E-mail</span><b class="t" style="word-break:break-all;font-size:clamp(20px,2.2vw,30px)">contato@sorvetestreviso.com.br</b></div>
+    <div class="contato rev"><span class="eyebrow" style="color:var(--rosso)">Telefone</span><b class="t">(43) 3441-1490</b></div>
+    <div class="contato rev"><span class="eyebrow" style="color:var(--rosso)">WhatsApp comercial</span><b class="t">(43) 9677-0141</b><a class="btn btn-blu" href="${wppLink('Olá! Vim pelo site da Treviso.')}" target="_blank" rel="noopener" style="align-self:flex-start;margin-top:8px">Chamar no WhatsApp</a></div>
     <div class="contato rev"><span class="eyebrow" style="color:var(--rosso)">Instagram</span><b class="t">@sorvetestreviso</b><a href="https://www.instagram.com/sorvetestreviso/" target="_blank" rel="noopener">Abrir perfil</a></div>
   </div>
   <div class="contato rev" style="margin-top:16px"><span class="eyebrow" style="color:var(--rosso)">Fábrica</span><b class="t">Rua Otavio Cividini, [nº] · Marumbi – PR</b><span>Sorvetes Treviso LTDA · CNPJ 00.153.607/0001-01</span><span>Compra para consumidor final: retirada na fábrica, de segunda a sexta, das 7h às 17h (sem entrega).</span><span>[Trabalhe conosco — confirmar se entra no site]</span></div>
@@ -1339,7 +1346,11 @@ function ligar(){
   const f=$('#form-revenda'); if(f) f.onsubmit=e=>{e.preventDefault();
     const falta=[...f.querySelectorAll('[required]')].find(i=>i.type==='checkbox'?!i.checked:!i.value.trim());
     if(falta){falta.focus();if(falta.type!=='checkbox')falta.style.borderColor='var(--rosso)';return}
-    $('#form-campos').hidden=true;$('#form-ok').hidden=false};
+    const v=n=>(f.elements[n]&&f.elements[n].value||'').trim();
+    const msg=`Olá! Quero revender Treviso.\nNome: ${v('nome')}\nEstabelecimento: ${v('estab')}\nCidade: ${v('cidade')}\nWhatsApp: ${v('wpp')}\nTipo de negócio: ${v('tipo')}`;
+    const url=wppLink(msg); $('#form-wpp').href=url;
+    $('#form-campos').hidden=true;$('#form-ok').hidden=false;
+    try{const w=window.open(url,'_blank','noopener');}catch(err){}};
   const rb=$('#ck-reabrir'); if(rb) rb.onclick=()=>{$('#cookies').hidden=false};
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.1});
   document.querySelectorAll('.rev').forEach(el=>io.observe(el));
@@ -1354,5 +1365,6 @@ $('.menu-btn').onclick=()=>{const m=$('#menu');const ab=m.classList.toggle('aber
 window.addEventListener('hashchange',render);
 render();
 </script>
+<a class="wpp-flut" href="https://wa.me/554396770141?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Treviso." target="_blank" rel="noopener" aria-label="Falar com a Treviso no WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3 1 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3z"/></svg></a>
 </body>
 </html>
