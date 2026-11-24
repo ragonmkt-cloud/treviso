@@ -489,12 +489,12 @@ const P = [
  ['sensacoes-speciale','Sensações','speciale','Pote','2 L · 1 kg','Sorvete sabor artificial de morango com pedaços de chocolate ao leite e cobertura de morango','sensacoes'],
  ['mesclabom-speciale','Mesclabom','speciale','Pote','2 L · 1 kg','Sorvete sabor artificial de leite condensado com pedaços de chocolate ao leite e cobertura de morango','mesclabom'],
  ['torta-alema-speciale','Torta Alemã','speciale','Pote','2 L · 1 kg','Sorvete sabor artificial de chocolate branco com pedaços de chocolate ao leite e cobertura de chocolate','torta-alema'],
- ['alfajor-speciale','Alfajor','speciale','Pote','',null,null],
- ['flocos-speciale','Flocos','speciale','Pote','',null,null],
- ['iogurte-com-amora-speciale','Iogurte com Amora','speciale','Pote','',null,null],
- ['mousse-de-limao-speciale','Mousse de Limão','speciale','Pote','',null,null],
- ['olho-de-sogra-speciale','Olho de Sogra','speciale','Pote','',null,null],
- ['ouro-negro-speciale','Ouro Negro','speciale','Pote','',null,null],
+ ['alfajor-speciale','Alfajor','speciale','Pote','2 L',null,null],
+ ['flocos-speciale','Flocos','speciale','Pote','2 L',null,null],
+ ['iogurte-com-amora-speciale','Iogurte com Amora','speciale','Pote','2 L',null,null],
+ ['mousse-de-limao-speciale','Mousse de Limão','speciale','Pote','2 L',null,null],
+ ['olho-de-sogra-speciale','Olho de Sogra','speciale','Pote','2 L',null,null],
+ ['ouro-negro-speciale','Ouro Negro','speciale','Pote','2 L',null,null],
  ['bello-ferrero-speciale','Bello Ferrero','speciale','Pote','1,5 L · 750 g',null,'bello-ferrero-pote'],
  ['bello-ferrero-celebrare','Bello Ferrero','celebrare','Picolé','73 g','Picolé sabor chocolate com avelã, recheio de creme de avelã e cobertura de chocolate com castanhas e biscoito','bello-ferrero-picole'],
  ['pe-de-moleque-celebrare','Pé de Moleque','celebrare','Picolé','75g','Picolé sabor artificial de bombom com recheio de creme de amendoim e cobertura de chocolate com amendoim','pe-de-moleque'],
@@ -1080,7 +1080,7 @@ function produtos(){
   <p class="sub" ${l?`style="color:${l.ink}"`:''}>${l?esc(l.txt):'Filtre por linha ou formato e toque em um sabor para ver os detalhes.'}</p></div></div>
   <div class="filtros">
     <div class="chips" role="group" aria-label="Linha"><button class="chip" data-linha="todas">Todas</button>${ls.map(id=>`<button class="chip" data-linha="${id}">${LINHAS[id].nome}</button>`).join('')}</div>
-    <div class="chips" role="group" aria-label="Formato">${['todos','Picolé','Pote','Outros'].map(f=>`<button class="chip" data-formato="${f}">${f==='todos'?'Todos os formatos':f+(f==='Outros'?'':'s')}</button>`).join('')}</div>
+    <div class="chips" role="group" aria-label="Formato">${FMTS.map(([f,t])=>`<button class="chip" data-formato="${f}">${t}</button>`).join('')}</div>
     <div class="busca"><label for="q" class="sr">Buscar sabor</label><input id="q" type="search" placeholder="Buscar sabor (ex.: morango)" value="${esc(estado.busca)}"></div>
     <span class="contagem" id="contagem" aria-live="polite"></span>
   </div>
@@ -1088,16 +1088,23 @@ function produtos(){
   ${foodExtra()}
   </div></section>`}
 
+const FMTS=[['todos','Todos os formatos'],['Picolé','Picolés'],['1 L','Potes 1 L'],['1,5 L','Potes 1,5 L'],['2 L','Potes 2 L'],['Outros','Outros']];
+const litros=p=>/pote/i.test(p.formato)?[...(p.tam||'').matchAll(/(\d+(?:,\d+)?) L/g)].map(m=>m[1]+' L'):[];
+function noFormato(p,f){
+  if(f==='todos')return true;
+  if(f==='Picolé')return p.formato.startsWith('Picolé');
+  if(f==='Outros')return !/^(Picolé|Pote)/.test(p.formato);
+  return litros(p).includes(f)}
 function filtrar(){
   const q=sem(estado.busca.trim());
   const lista=P.filter(p=>(estado.linha==='todas'||p.linha===estado.linha)
-    &&(estado.formato==='todos'||(estado.formato==='Outros'?!/^(Picolé|Pote)/.test(p.formato):p.formato.startsWith(estado.formato)))
+    &&noFormato(p,estado.formato)
     &&(!q||sem(p.nome+' '+LINHAS[p.linha].nome).includes(q)));
   $('#grade').innerHTML=lista.length?lista.map(cardProd).join(''):`<div class="vazio" style="grid-column:1/-1">Nenhum sabor encontrado com esses filtros.</div>`;
   $('#contagem').textContent=lista.length+(lista.length===1?' produto':' produtos');
   document.querySelectorAll('[data-linha]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.linha===estado.linha));
   const fx=$('#food-extra'); if(fx) fx.hidden=estado.linha!=='food';
-  document.querySelectorAll('[data-formato]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.formato===estado.formato));
+  document.querySelectorAll('[data-formato]').forEach(b=>{const f=b.dataset.formato;b.setAttribute('aria-pressed',f===estado.formato);b.hidden=f!=='todos'&&f!==estado.formato&&!P.some(p=>(estado.linha==='todas'||p.linha===estado.linha)&&noFormato(p,f))});
 }
 
 function produto(slug){
