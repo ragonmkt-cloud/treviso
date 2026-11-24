@@ -286,6 +286,17 @@ section.bloco{padding:100px 0}
 @media (max-width:860px){.perto{grid-template-columns:1fr}.mapa{min-height:380px;order:-1}.perto-ctrl{max-height:none}}
 .wpp-flut{position:fixed;right:20px;bottom:20px;z-index:40;width:60px;height:60px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 24px rgba(0,0,0,.22);transition:transform .2s}
 .wpp-flut:hover,.wpp-flut:focus-visible{transform:scale(1.07)}
+.clipes{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(150px,1fr);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;margin-top:8px}
+.clip{margin:0;scroll-snap-align:start;min-width:0}
+.clip video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:22px;background:#dfe6f2;display:block;box-shadow:0 18px 36px rgba(15,27,51,.14)}
+.clip figcaption{margin-top:10px;font-variation-settings:'wdth' 300,'wght' 700;color:var(--blu-esc);font-size:15px}
+.sub-fab{font-size:clamp(30px,3.4vw,44px);color:var(--blu-esc);margin:56px 0 18px}
+.fotos-fab{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:28px}
+.fotos-fab figure{margin:0}
+.fotos-fab img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:20px;display:block}
+.fotos-fab figcaption{margin-top:8px;font-size:14px;color:var(--cinza)}
+.link-seta{color:var(--blu);font-variation-settings:'wdth' 300,'wght' 700;display:inline-flex;align-items:center;gap:6px;align-self:end}
+@media (max-width:760px){.clipes{grid-auto-columns:62%}.fotos-fab{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .grade-pontos{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
 .onde-filtros{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:12px;width:100%}
 .campo-cid select{width:100%;min-height:56px;border-radius:999px;border:1.5px solid #D5DEEE;background:#fff;padding:0 22px;font:inherit;font-size:17px;color:var(--blu-esc);font-variation-settings:'wdth' 300,'wght' 600;appearance:auto}
@@ -988,6 +999,14 @@ ${arcosTri}
   </div>
 </section>
 
+<section class="bloco">
+  <div class="wrap">
+    <div class="cab rev"><div><p class="eyebrow" style="color:var(--rosso)">Bastidores</p><h2 class="titulo t">Feito em Marumbi, <em>todo dia</em></h2></div>
+    <a class="link-seta" href="#sobre">Veja a fábrica por dentro ${seta}</a></div>
+    ${clipes(['mistura','envase','cobertura','pronto'])}
+  </div>
+</section>
+
 <section class="bloco" style="background:var(--creme)">
   <div class="wrap duas">
     <div class="rev"><p class="eyebrow" style="color:var(--blu)">Onde encontrar</p><h2 class="titulo t">Tem Treviso <em>perto de você</em></h2>
@@ -1131,6 +1150,9 @@ function sobre(){return `<section class="hero" style="padding-bottom:0"><div cla
     <p class="sub">São cerca de 5.500 m² de área construída, com equipamentos modernos e processos pensados para manter o padrão de qualidade. A equipe passa por treinamento constante, e boa parte dos colaboradores está na Treviso há mais de 10 anos.</p></div>
     <div class="video-inst rev"><video controls playsinline preload="none" poster="img/institucional-poster.webp" aria-label="Vídeo institucional da Sorvetes Treviso"><source src="img/institucional-720.mp4" type="video/mp4">Seu navegador não reproduz vídeo.</video></div>
     <p class="video-leg">Vídeo institucional Treviso · 2 min</p>
+    <h3 class="t sub-fab">Da máquina ao freezer</h3>
+    ${clipes()}
+    <div class="fotos-fab">${FOTOS_FAB.map(([id,leg])=>`<figure><img src="img/fab/${id}.webp" alt="${leg}" loading="lazy"><figcaption>${leg}</figcaption></figure>`).join('')}</div>
   </div></section>`}
 
 function onde(){
@@ -1164,6 +1186,17 @@ function onde(){
 
 const WPP='554396770141';
 const wppLink=t=>'https://wa.me/'+WPP+'?text='+encodeURIComponent(t);
+const CLIPES=[['mistura','Mistura dos sabores'],['envase','Envase dos potes'],['cobertura','Cobertura dos picolés'],['embalagem','Embalagem'],['pronto','Pronto para o freezer'],['fabrica','A fábrica em Marumbi']];
+const FOTOS_FAB=[['foto1','Envase do Combinatto na produtora contínua'],['foto4','Potes Combinatto saindo da linha'],['foto2','Desenforme dos picolés'],['foto3','Picolés recém-cobertos com chocolate']];
+function clipes(lista){return `<div class="clipes">${CLIPES.filter(c=>!lista||lista.includes(c[0])).map(([id,leg])=>`<figure class="clip"><video muted loop playsinline preload="none" poster="img/fab/${id}.webp" data-src="img/fab/${id}.mp4" aria-label="${leg}"></video><figcaption>${leg}</figcaption></figure>`).join('')}</div>`}
+function ativarClipes(){
+  const vs=document.querySelectorAll('.clip video'); if(!vs.length) return;
+  const calmo=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(calmo||!('IntersectionObserver' in window)) return;
+  const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;
+    if(e.isIntersecting){if(!v.src){v.src=v.dataset.src}const p=v.play();if(p&&p.catch)p.catch(()=>{})}else{v.pause()}}),{threshold:.35});
+  vs.forEach(v=>io.observe(v));
+}
 const RAIO_KM=3;
 function distKm(a,b,c,d){const R=6371,r=x=>x*Math.PI/180,dl=r(c-a),dn=r(d-b);const h=Math.sin(dl/2)**2+Math.cos(r(a))*Math.cos(r(c))*Math.sin(dn/2)**2;return 2*R*Math.asin(Math.sqrt(h))}
 const mapaOK=()=>!/claude/i.test(location.hostname)&&location.protocol.startsWith('http');
@@ -1354,6 +1387,7 @@ function ligar(){
   const rb=$('#ck-reabrir'); if(rb) rb.onclick=()=>{$('#cookies').hidden=false};
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.1});
   document.querySelectorAll('.rev').forEach(el=>io.observe(el));
+  ativarClipes();
 }
 
 function lerCk(){try{return localStorage.getItem('treviso-cookies')}catch(e){return null}}
